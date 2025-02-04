@@ -64,57 +64,21 @@
 
         /* Fixed scale on the left */
         .scale {
+            pointer-events: none;
             position: fixed;
-            z-index: -1;
+            z-index: 1;
             left: 15%;
             top: 0;
             height: 100%;
             width: 160px;
-            background: rgba(42, 46, 51, 0.2);
-            border-right: 1px solid rgba(121, 184, 255, 0.3);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 20px 0;
-            pointer-events: none;
         }
-
-        .scale-line {
-            position: absolute;
-            left: 0;
+        
+        .scale svg {
             width: 100%;
-            height: 1px;
-            background: rgba(121, 184, 255, 0.3);
-            box-shadow: 0 0 2px rgba(121, 184, 255, 0.1);
+            height: 100%;
         }
 
-        .scale-line-half {
-            position: absolute;
-            left: 0;
-            width: 100%;
-            height: 1px;
-            background: rgba(121, 184, 255, 0.15);
-        }
 
-        .scale-number {
-            position: absolute;
-            left: 24px;
-            color: rgba(121, 184, 255, 0.5);
-            font-size: 14px;
-            font-family: 'Monaco', 'Fira Code', monospace;
-            font-weight: 300;
-            letter-spacing: 1px;
-            text-shadow: 0 0 2px rgba(121, 184, 255, 0.05);
-        }
-
-        .scale-tick {
-            position: absolute;
-            right: 20px;
-            width: 40px;
-            height: 1px;
-            background: rgba(121, 184, 255, 0.4);
-            box-shadow: 0 0 2px rgba(121, 184, 255, 0.02);
-        }
 
         /* Rest of the styles from index.html */
         .ai {
@@ -229,7 +193,55 @@
     </style>
 </head>
 <body>
-    <div class="scale"></div>
+    <div class="scale">
+        <svg width="100%" height="100%">
+            <!-- Vertical line -->
+            <line x1="100%" y1="0" x2="100%" y2="100%" stroke="rgba(121, 184, 255, 0.4)" stroke-width="1"/>
+        </svg>
+    </div>
+    <script>
+        function createRuler() {
+            const svg = document.querySelector('.scale svg');
+            const height = window.innerHeight;
+            const majorStep = 50; // pixels between major graduations
+            const minorStep = 10; // pixels between minor graduations
+            
+            // Create all graduations
+            for (let y = 0; y <= height; y += minorStep) {
+                const isMajor = y % majorStep === 0;
+                const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+                
+                // Major graduations
+                if (isMajor) {
+                    line.setAttribute('x1', '60%');
+                    line.setAttribute('stroke-width', '1');
+                    
+                    // Add number
+                    const text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+                    text.setAttribute('x', '24');
+                    text.setAttribute('y', y + 5);
+                    text.setAttribute('fill', 'rgba(121, 184, 255, 0.4)');
+                    text.setAttribute('font-family', 'Monaco');
+                    text.setAttribute('font-size', '14');
+                    text.textContent = Math.floor(y / majorStep);
+                    svg.appendChild(text);
+                } 
+                // Minor graduations
+                else {
+                    line.setAttribute('x1', '80%');
+                    line.setAttribute('stroke-width', '0.5');
+                }
+                
+                line.setAttribute('y1', y);
+                line.setAttribute('x2', '100%');
+                line.setAttribute('y2', y);
+                line.setAttribute('stroke', 'rgba(121, 184, 255, 0.4)');
+                svg.appendChild(line);
+            }
+        }
+        
+        window.addEventListener('load', createRuler);
+    </script>
     <div class="background-layer"></div>
     <div class="background-pattern">
         <!-- SVG pattern will be inserted here by JavaScript -->
