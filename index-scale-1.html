@@ -53,7 +53,7 @@
             position: relative;
             z-index: 2;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0;
             min-height: 100vh;
         }
         
@@ -67,10 +67,17 @@
             pointer-events: none;
             position: fixed;
             z-index: 1;
-            left: 15%;
             top: 0;
             height: 100%;
-            width: 160px;
+            width: 100px;
+        }
+
+        .scale.left {
+            left: 0;
+        }
+
+        .scale.right {
+            right: 0;
         }
         
         .scale svg {
@@ -116,7 +123,7 @@
 
         .header {
             background: #2A2E33;
-            padding: 2rem;
+            padding: 3rem 1rem;
             border-bottom: 3px solid #C678DD;
         }
 
@@ -151,7 +158,7 @@
         .chat-container {
             max-width: 800px;
             margin: 0 auto;
-            padding: 2rem 1rem;
+            padding: 2rem 5px;
         }
 
         .message {
@@ -193,18 +200,25 @@
     </style>
 </head>
 <body>
-    <div class="scale">
+    <div class="scale left">
         <svg width="100%" height="100%">
             <!-- Vertical line -->
             <line x1="100%" y1="0" x2="100%" y2="100%" stroke="rgba(121, 184, 255, 0.4)" stroke-width="1"/>
+        </svg>
+    </div>
+    <div class="scale right">
+        <svg width="100%" height="100%">
+            <!-- Vertical line -->
+            <line x1="0" y1="0" x2="0" y2="100%" stroke="rgba(121, 184, 255, 0.4)" stroke-width="1"/>
         </svg>
     </div>
     <script>
         let lastScrollY = 0;
         let ticking = false;
         
-        function createRuler() {
-            const svg = document.querySelector('.scale svg');
+        function createRuler(side) {
+            const isLeft = side === 'left';
+            const svg = document.querySelector(`.scale.${side} svg`);
             const height = Math.max(
                 document.documentElement.scrollHeight,
                 document.documentElement.offsetHeight,
@@ -221,11 +235,12 @@
                 const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
                 
                 if (isMajor) {
-                    line.setAttribute('x1', '60%');
+                    line.setAttribute('x1', isLeft ? '60%' : '40%');
                     line.setAttribute('stroke-width', '1');
                     
                     const text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
-                    text.setAttribute('x', '24');
+                    text.setAttribute('x', isLeft ? '2' : '78');
+                    text.setAttribute('text-anchor', isLeft ? 'start' : 'end');
                     text.setAttribute('y', y + 5);
                     text.setAttribute('fill', 'rgba(121, 184, 255, 0.4)');
                     text.setAttribute('font-family', 'Monaco');
@@ -233,12 +248,12 @@
                     text.textContent = Math.floor(y / majorStep);
                     group.appendChild(text);
                 } else {
-                    line.setAttribute('x1', '80%');
+                    line.setAttribute('x1', isLeft ? '80%' : '20%');
                     line.setAttribute('stroke-width', '0.5');
                 }
                 
                 line.setAttribute('y1', y);
-                line.setAttribute('x2', '100%');
+                line.setAttribute('x2', isLeft ? '100%' : '0');
                 line.setAttribute('y2', y);
                 line.setAttribute('stroke', 'rgba(121, 184, 255, 0.4)');
                 group.appendChild(line);
@@ -248,13 +263,18 @@
         }
         
         function updateParallax() {
-            const group = document.querySelector('.scale svg g');
-            if (!group) return;
+            const leftGroup = document.querySelector('.scale.left svg g');
+            const rightGroup = document.querySelector('.scale.right svg g');
+            if (!leftGroup || !rightGroup) return;
             
             const parallaxY = -window.scrollY * 0.2;
             
-            group.style.transition = 'transform 0.3s cubic-bezier(0.1, 0.7, 0.1, 1)';
-            group.style.transform = `translateY(${parallaxY}px)`;
+            const transition = 'transform 0.3s cubic-bezier(0.1, 0.7, 0.1, 1)';
+            leftGroup.style.transition = transition;
+            rightGroup.style.transition = transition;
+            
+            leftGroup.style.transform = `translateY(${parallaxY}px)`;
+            rightGroup.style.transform = `translateY(${parallaxY}px)`;
             
             ticking = false;
         }
@@ -270,7 +290,10 @@
         window.addEventListener('scroll', onScroll);
         // Create ruler after content is loaded and rendered
         window.addEventListener('load', () => {
-            setTimeout(createRuler, 100);
+            setTimeout(() => {
+                createRuler('left');
+                createRuler('right');
+            }, 100);
         });
     </script>
     <div class="background-layer"></div>
