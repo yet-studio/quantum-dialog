@@ -200,23 +200,26 @@
         </svg>
     </div>
     <script>
+        let lastScrollY = 0;
+        let ticking = false;
+        
         function createRuler() {
             const svg = document.querySelector('.scale svg');
-            const height = window.innerHeight;
-            const majorStep = 50; // pixels between major graduations
-            const minorStep = 10; // pixels between minor graduations
+            const height = window.innerHeight * 2;
+            const majorStep = 50;
+            const minorStep = 10;
             
-            // Create all graduations
+            const group = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+            svg.appendChild(group);
+            
             for (let y = 0; y <= height; y += minorStep) {
                 const isMajor = y % majorStep === 0;
                 const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
                 
-                // Major graduations
                 if (isMajor) {
                     line.setAttribute('x1', '60%');
                     line.setAttribute('stroke-width', '1');
                     
-                    // Add number
                     const text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
                     text.setAttribute('x', '24');
                     text.setAttribute('y', y + 5);
@@ -224,10 +227,8 @@
                     text.setAttribute('font-family', 'Monaco');
                     text.setAttribute('font-size', '14');
                     text.textContent = Math.floor(y / majorStep);
-                    svg.appendChild(text);
-                } 
-                // Minor graduations
-                else {
+                    group.appendChild(text);
+                } else {
                     line.setAttribute('x1', '80%');
                     line.setAttribute('stroke-width', '0.5');
                 }
@@ -236,10 +237,33 @@
                 line.setAttribute('x2', '100%');
                 line.setAttribute('y2', y);
                 line.setAttribute('stroke', 'rgba(121, 184, 255, 0.4)');
-                svg.appendChild(line);
+                group.appendChild(line);
+            }
+            
+            updateParallax();
+        }
+        
+        function updateParallax() {
+            const group = document.querySelector('.scale svg g');
+            if (!group) return;
+            
+            const parallaxY = -window.scrollY * 0.2;
+            
+            group.style.transition = 'transform 0.3s cubic-bezier(0.1, 0.7, 0.1, 1)';
+            group.style.transform = `translateY(${parallaxY}px)`;
+            
+            ticking = false;
+        }
+        
+        function onScroll() {
+            lastScrollY = window.scrollY;
+            if (!ticking) {
+                requestAnimationFrame(updateParallax);
+                ticking = true;
             }
         }
         
+        window.addEventListener('scroll', onScroll);
         window.addEventListener('load', createRuler);
     </script>
     <div class="background-layer"></div>
