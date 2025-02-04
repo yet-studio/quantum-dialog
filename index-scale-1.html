@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Style 1 - Left Fixed Scale</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Base styles from index.html */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Fira Code', monospace;
+            line-height: 1.5;
+            position: relative;
+        }
+
+        /* Black background layer */
+        .background-layer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: #1B1F23;
+            z-index: 0;
+        }
+
+        /* Background pattern container */
+        .background-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            pointer-events: none;
+            opacity: 0.015;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .background-pattern svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Content wrapper */
+        .content-wrapper {
+            position: relative;
+            z-index: 2;
+            margin: 0 auto;
+            padding: 0 20px;
+            min-height: 100vh;
+        }
+        
+        #chat, #epilogue {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Fixed scale on the left */
+        .scale {
+            position: fixed;
+            z-index: -1;
+            left: 15%;
+            top: 0;
+            height: 100%;
+            width: 160px;
+            background: rgba(42, 46, 51, 0.2);
+            border-right: 1px solid rgba(121, 184, 255, 0.3);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px 0;
+            pointer-events: none;
+        }
+
+        .scale-line {
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: rgba(121, 184, 255, 0.3);
+            box-shadow: 0 0 2px rgba(121, 184, 255, 0.1);
+        }
+
+        .scale-line-half {
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: rgba(121, 184, 255, 0.15);
+        }
+
+        .scale-number {
+            position: absolute;
+            left: 24px;
+            color: rgba(121, 184, 255, 0.5);
+            font-size: 14px;
+            font-family: 'Monaco', 'Fira Code', monospace;
+            font-weight: 300;
+            letter-spacing: 1px;
+            text-shadow: 0 0 2px rgba(121, 184, 255, 0.05);
+        }
+
+        .scale-tick {
+            position: absolute;
+            right: 20px;
+            width: 40px;
+            height: 1px;
+            background: rgba(121, 184, 255, 0.4);
+            box-shadow: 0 0 2px rgba(121, 184, 255, 0.02);
+        }
+
+        /* Rest of the styles from index.html */
+        .ai {
+            color: #D1D5DA;
+        }
+
+        .user {
+            color: #DCE0E4;
+        }
+
+        .separator {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+            text-align: center;
+            position: relative;
+        }
+        
+        .separator hr {
+            margin: 0;
+            border: none;
+            border-top: 1px solid #C678DD;
+        }
+        
+        .separator span {
+            background: #1B1F23;
+            padding: 0 1rem;
+            color: #C678DD;
+            font-weight: 600;
+            font-size: 1.2em;
+            position: relative;
+            top: -0.7em;
+            text-shadow: 0 0 8px rgba(198, 120, 221, 0.3);
+        }
+
+        .header {
+            background: #2A2E33;
+            padding: 2rem;
+            border-bottom: 3px solid #C678DD;
+        }
+
+        .header h1 {
+            color: #C678DD;
+            font-size: 1.8em;
+            margin-bottom: 1rem;
+        }
+
+        .header h2 {
+            color: #D1D5DA;
+            font-size: 1.2em;
+            margin-bottom: 1.5rem;
+        }
+
+        .header h3 {
+            color: #B9BDC1;
+            font-size: 1.1em;
+            font-weight: normal;
+            line-height: 1.4;
+            margin-bottom: 1rem;
+        }
+
+        .header h4 {
+            color: #A1A5A9;
+            font-size: 1em;
+            font-weight: normal;
+            font-style: italic;
+            line-height: 1.4;
+        }
+
+        .chat-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        .message {
+            padding: 15px;
+            border-radius: 4px;
+            margin: 10px 0;
+            max-width: 80%;
+            position: relative;
+        }
+
+        .ai {
+            background: #2D2E3D;
+            margin-right: auto;
+            border-left: 3px solid #79B8FF;
+        }
+
+        .user {
+            background: #3D3F50;
+            margin-left: auto;
+            border-left: 3px solid #85E89D;
+        }
+
+        .sender {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .ai .sender {
+            color: #79B8FF;
+        }
+
+        .user .sender {
+            color: #85E89D;
+        }
+
+        p {
+            margin: 0.5em 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="scale"></div>
+    <div class="background-layer"></div>
+    <div class="background-pattern">
+        <!-- SVG pattern will be inserted here by JavaScript -->
+    </div>
+    <div class="content-wrapper">
+    <div class="scale">
+        <!-- Scale lines and numbers will be added by JavaScript -->
+    </div>
+
+    <div class="header" id="header">
+        <!-- Header content will be injected here -->
+    </div>
+
+    <div class="chat-container" id="chat">
+        <!-- Chat content will be injected here -->
+    </div>
+
+    <div class="separator">
+        <hr>
+        <span>Épilogue</span>
+    </div>
+
+    <div class="chat-container" id="epilogue">
+        <!-- Epilogue content will be injected here -->
+    </div>
+
+    <script>
+        // Function to load JSON data
+        async function loadJSON(url) {
+            const response = await fetch(url);
+            return await response.json();
+        }
+
+        // Function to create header content
+        function createHeader(data) {
+            return `
+                <h1>${data.title}</h1>
+                <h2>${data.subtitle}</h2>
+                <h3>${data.context}</h3>
+                <h4>${data.note}</h4>
+            `;
+        }
+
+        // Function to create chat messages
+        function createMessages(data) {
+            return data.messages.map(msg => {
+                const emoji = msg.sender === 'AI' ? '🤖' : '👨‍💻';
+                return `
+                    <div class="message ${msg.sender.toLowerCase()}">
+                        <div class="sender">${emoji} ${msg.sender}</div>
+                        <p>${msg.content}</p>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // Function to create scale lines
+        function createScale() {
+            const scale = document.querySelector('.scale');
+            const steps = 50; // Number of lines
+            
+            for (let i = 0; i <= steps; i++) {
+                const percent = (i / steps) * 100;
+                
+                const line = document.createElement('div');
+                line.className = i % 5 === 0 ? 'scale-line' : 'scale-line-half';
+                line.style.top = `${percent}%`;
+                scale.appendChild(line);
+                
+                if (i % 10 === 0) { // Add numbers every 10 steps
+                    const number = document.createElement('div');
+                    number.className = 'scale-number';
+                    number.textContent = i;
+                    number.style.top = `${percent}%`;
+                    scale.appendChild(number);
+                    
+                    const tick = document.createElement('div');
+                    tick.className = 'scale-tick';
+                    tick.style.top = `${percent}%`;
+                    scale.appendChild(tick);
+                }
+            }
+        }
+
+        // Initialize the page
+        async function init() {
+            try {
+                const [titles, chat, epilogue] = await Promise.all([
+                    loadJSON('titles.json'),
+                    loadJSON('chat.json'),
+                    loadJSON('epilog.json')
+                ]);
+
+                document.getElementById('header').innerHTML = createHeader(titles);
+                document.getElementById('chat').innerHTML = createMessages(chat);
+                document.getElementById('epilogue').innerHTML = createMessages(epilogue);
+                
+                createScale();
+            } catch (error) {
+                console.error('Error loading data:', error);
+            }
+        }
+
+        // Load the content when the page is ready
+        document.addEventListener('DOMContentLoaded', init);
+        // Function to create SVG background pattern
+        function createBackgroundPattern() {
+            const container = document.querySelector('.background-pattern');
+            const height = Math.max(
+                document.body.scrollHeight,
+                document.body.offsetHeight,
+                document.documentElement.clientHeight,
+                document.documentElement.scrollHeight,
+                document.documentElement.offsetHeight
+            );
+
+            // Create SVG
+            const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+            svg.setAttribute('width', '100%');
+            svg.setAttribute('height', height);
+            svg.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+
+            // Create pattern
+            const spacing = 100; // Space between lines
+            const numLines = Math.ceil(height / spacing);
+            
+            for (let i = 0; i < numLines; i++) {
+                const y = i * spacing;
+                
+                // Create line
+                const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+                line.setAttribute('x1', '15%');
+                line.setAttribute('y1', y);
+                line.setAttribute('x2', '95%');
+                line.setAttribute('y2', y);
+                line.setAttribute('stroke', '#79B8FF');
+                line.setAttribute('stroke-width', '1');
+                line.setAttribute('stroke-dasharray', '2 4');
+                svg.appendChild(line);
+
+                // Add number
+                const text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+                text.setAttribute('x', '16%');
+                text.setAttribute('y', y + 4);
+                text.setAttribute('fill', '#79B8FF');
+                text.setAttribute('font-size', '12');
+                text.setAttribute('font-family', 'Fira Code');
+                text.textContent = (i * 5).toString().padStart(2, '0');
+                svg.appendChild(text);
+            }
+
+            container.innerHTML = '';
+            container.appendChild(svg);
+        }
+
+        // Update pattern on window resize
+        window.addEventListener('resize', createBackgroundPattern);
+
+        // Initialize pattern after content is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            init();
+            setTimeout(createBackgroundPattern, 100); // Small delay to ensure content is rendered
+        });
+    </script>
+    </div>
+</body>
+</html>
