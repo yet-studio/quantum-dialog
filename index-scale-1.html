@@ -88,14 +88,32 @@
 
 
         /* Rest of the styles from index.html */
+        .message {
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 12px;
+            max-width: 80%;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 80px;
+            margin-right: 80px;
+        }
+
+        .message-content {
+            position: relative;
+            z-index: 2;
+        }
+
         .ai {
             color: #D1D5DA;
-            position: relative;
+            background: #2A2B3C;
+            margin-right: auto;
         }
 
         .user {
             color: #DCE0E4;
-            position: relative;
+            background: #3E3F52;
+            margin-left: auto;
         }
 
         .message-icons {
@@ -211,6 +229,24 @@
         .sender {
             font-weight: 600;
             margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .sender-emoji {
+            font-size: 1.2em;
+        }
+
+        .pinned-emoji {
+            position: absolute;
+            bottom: -50px;
+            right: -18.6px;
+            font-size: 186px;
+            opacity: 0.144;
+            pointer-events: none;
+            z-index: 1;
+            transform: rotate(-30deg);
         }
 
         .ai .sender {
@@ -379,15 +415,34 @@
 
         // Function to create chat messages
         function createMessages(data) {
-            return data.messages.map(msg => {
+            const container = document.createElement('div');
+            data.messages.forEach(msg => {
                 const emoji = msg.sender === 'AI' ? '🤖' : '👨‍💻';
-                return `
-                    <div class="message ${msg.sender.toLowerCase()}">
-                        <div class="sender">${emoji} ${msg.sender}</div>
-                        <p>${msg.content}</p>
-                    </div>
-                `;
-            }).join('');
+                
+                const messageDiv = document.createElement('div');
+                messageDiv.className = `message ${msg.sender.toLowerCase()}`;
+                
+                const messageContent = document.createElement('div');
+                messageContent.className = 'message-content';
+                
+                const senderDiv = document.createElement('div');
+                senderDiv.className = 'sender';
+                senderDiv.textContent = `${emoji} ${msg.sender}`;
+                
+                const contentP = document.createElement('p');
+                contentP.textContent = msg.content;
+                
+                const pinnedEmoji = document.createElement('div');
+                pinnedEmoji.className = 'pinned-emoji';
+                pinnedEmoji.textContent = emoji;
+                
+                messageContent.appendChild(senderDiv);
+                messageContent.appendChild(contentP);
+                messageDiv.appendChild(messageContent);
+                messageDiv.appendChild(pinnedEmoji);
+                container.appendChild(messageDiv);
+            });
+            return container.innerHTML;
         }
 
         // Function to create scale lines
