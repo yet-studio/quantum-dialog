@@ -90,10 +90,37 @@
         /* Rest of the styles from index.html */
         .ai {
             color: #D1D5DA;
+            position: relative;
         }
 
         .user {
             color: #DCE0E4;
+            position: relative;
+        }
+
+        .message-icons {
+            position: absolute;
+            bottom: 8px;
+            right: 8px;
+            display: flex;
+            gap: 8px;
+            opacity: 0.6;
+            transition: opacity 0.2s;
+        }
+
+        .message:hover .message-icons {
+            opacity: 1;
+        }
+
+        .message-icon {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .message-icon:hover {
+            transform: scale(1.2);
         }
 
         .separator {

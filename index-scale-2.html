@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Style 2 - Right Progress Bar</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Base styles from index.html */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Fira Code', monospace;
+            background: #1B1F23;
+            line-height: 1.5;
+            padding-right: 40px; /* Make room for the scale */
+        }
+
+        /* Scale Style 2: Right progress bar with floating indicator */
+        .scale {
+            position: fixed;
+            right: clamp(10px, 2vw, 30px);
+            top: 50%;
+            transform: translateY(-50%);
+            width: clamp(35px, 3vw, 45px);
+            height: clamp(200px, 40vh, 300px);
+            background: #2A2E33;
+            border-radius: 15px;
+            border: 1px solid #79B8FF;
+            z-index: 100;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .scale-track {
+            position: absolute;
+            top: 15px;
+            height: calc(100% - 30px);
+            width: 2px;
+            background: rgba(121, 184, 255, 0.2);
+            border-radius: 1px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .scale-progress {
+            position: absolute;
+            top: 15px;
+            width: 2px;
+            background: #79B8FF;
+            border-radius: 1px;
+            transition: height 0.3s ease;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: 0 0 5px rgba(121, 184, 255, 0.5);
+        }
+
+        .scale-indicator {
+            position: absolute;
+            left: 50%;
+            width: clamp(25px, 2.5vw, 35px);
+            height: clamp(25px, 2.5vw, 35px);
+            background: #2A2E33;
+            border: 2px solid #79B8FF;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: top 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #79B8FF;
+            font-size: clamp(12px, 1.2vw, 16px);
+            font-weight: 600;
+            box-shadow: 0 0 5px rgba(121, 184, 255, 0.5);
+        }
+
+        /* Rest of the styles from index.html */
+        .ai {
+            color: #D1D5DA;
+        }
+
+        .user {
+            color: #DCE0E4;
+        }
+
+        .separator {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+            text-align: center;
+            position: relative;
+        }
+        
+        .separator hr {
+            margin: 0;
+            border: none;
+            border-top: 1px solid #C678DD;
+        }
+        
+        .separator span {
+            background: #1B1F23;
+            padding: 0 1rem;
+            color: #C678DD;
+            font-weight: 600;
+            font-size: 1.2em;
+            position: relative;
+            top: -0.7em;
+            text-shadow: 0 0 8px rgba(198, 120, 221, 0.3);
+        }
+
+        .header {
+            background: #2A2E33;
+            padding: 2rem;
+            border-bottom: 3px solid #C678DD;
+        }
+
+        .header h1 {
+            color: #C678DD;
+            font-size: 1.8em;
+            margin-bottom: 1rem;
+        }
+
+        .header h2 {
+            color: #D1D5DA;
+            font-size: 1.2em;
+            margin-bottom: 1.5rem;
+        }
+
+        .header h3 {
+            color: #B9BDC1;
+            font-size: 1.1em;
+            font-weight: normal;
+            line-height: 1.4;
+            margin-bottom: 1rem;
+        }
+
+        .header h4 {
+            color: #A1A5A9;
+            font-size: 1em;
+            font-weight: normal;
+            font-style: italic;
+            line-height: 1.4;
+        }
+
+        .chat-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        .message {
+            padding: 15px;
+            border-radius: 4px;
+            margin: 10px 0;
+            max-width: 80%;
+            position: relative;
+        }
+
+        .ai {
+            background: #2D2E3D;
+            margin-right: auto;
+            border-left: 3px solid #79B8FF;
+        }
+
+        .user {
+            background: #3D3F50;
+            margin-left: auto;
+            border-left: 3px solid #85E89D;
+        }
+
+        .sender {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .ai .sender {
+            color: #79B8FF;
+        }
+
+        .user .sender {
+            color: #85E89D;
+        }
+
+        p {
+            margin: 0.5em 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="scale">
+        <div class="scale-track"></div>
+        <div class="scale-progress"></div>
+        <div class="scale-indicator">0%</div>
+    </div>
+
+    <div class="header" id="header">
+        <!-- Header content will be injected here -->
+    </div>
+
+    <div class="chat-container" id="chat">
+        <!-- Chat content will be injected here -->
+    </div>
+
+    <div class="separator">
+        <hr>
+        <span>Épilogue</span>
+    </div>
+
+    <div class="chat-container" id="epilogue">
+        <!-- Epilogue content will be injected here -->
+    </div>
+
+    <script>
+        // Function to load JSON data
+        async function loadJSON(url) {
+            const response = await fetch(url);
+            return await response.json();
+        }
+
+        // Function to create header content
+        function createHeader(data) {
+            return `
+                <h1>${data.title}</h1>
+                <h2>${data.subtitle}</h2>
+                <h3>${data.context}</h3>
+                <h4>${data.note}</h4>
+            `;
+        }
+
+        // Function to create chat messages
+        function createMessages(data) {
+            return data.messages.map(msg => {
+                const emoji = msg.sender === 'AI' ? '🤖' : '👨‍💻';
+                return `
+                    <div class="message ${msg.sender.toLowerCase()}">
+                        <div class="sender">${emoji} ${msg.sender}</div>
+                        <p>${msg.content}</p>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // Function to update scroll progress
+        function updateScrollProgress() {
+            const winScroll = window.scrollY;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            
+            const maxHeight = document.querySelector('.scale-track').offsetHeight;
+            const progressHeight = (scrolled / 100) * maxHeight;
+            document.querySelector('.scale-progress').style.height = progressHeight + 'px';
+            const indicatorPosition = (scrolled / 100) * maxHeight + 15;
+            document.querySelector('.scale-indicator').style.top = indicatorPosition + 'px';
+            document.querySelector('.scale-indicator').textContent = Math.round(scrolled) + '%';
+        }
+
+        // Initialize the page
+        async function init() {
+            try {
+                const [titles, chat, epilogue] = await Promise.all([
+                    loadJSON('titles.json'),
+                    loadJSON('chat.json'),
+                    loadJSON('epilog.json')
+                ]);
+
+                document.getElementById('header').innerHTML = createHeader(titles);
+                document.getElementById('chat').innerHTML = createMessages(chat);
+                document.getElementById('epilogue').innerHTML = createMessages(epilogue);
+                
+                // Add scroll listener
+                window.addEventListener('scroll', updateScrollProgress);
+                updateScrollProgress(); // Initial call
+            } catch (error) {
+                console.error('Error loading data:', error);
+            }
+        }
+
+        // Load the content when the page is ready
+        document.addEventListener('DOMContentLoaded', init);
+    </script>
+</body>
+</html>

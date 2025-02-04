@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dialogue Méta Styles</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@400;600&family=JetBrains+Mono:wght@400;600&family=Playfair+Display:wght@400;600&family=Space+Grotesk:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Common Layout */
+        .style-section {
+            padding: 2rem 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .chat-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .message {
+            padding: 15px;
+            border-radius: 12px;
+            margin: 10px 0;
+            max-width: 80%;
+        }
+
+        .sender {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .ai { margin-right: auto; }
+        .user { margin-left: auto; }
+        
+        /* Style 1: Modern Dark with Space Grotesk */
+        .style-1 {
+            background: #1E1E2E;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        .style-1 .ai {
+            color: #CDD6F4;
+        }
+        .style-1 .user {
+            color: #E2E8F5;
+        }
+        
+        .style-1 .message {
+            line-height: 1.6;
+        }
+        
+        .style-1 .ai {
+            background: #2A2B3C;
+            border-left: 4px solid #89B4FA;
+        }
+        
+        .style-1 .user {
+            background: #3E3F52;
+            border-right: 4px solid #F5C2E7;
+        }
+        
+        .style-1 .ai .sender {
+            color: #89B4FA;
+        }
+        .style-1 .user .sender {
+            color: #F5C2E7;
+        }
+
+        /* Style 2: Elegant Light with Playfair Display */
+        .style-2 {
+            background: #F8F9FA;
+            font-family: 'Playfair Display', serif;
+        }
+        .style-2 .ai {
+            color: #212529;
+        }
+        .style-2 .user {
+            color: #1A1E21;
+        }
+        
+        .style-2 .message {
+            line-height: 1.7;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .style-2 .ai {
+            background: #E2E6EA;
+            border: 1px solid #DEE2E6;
+        }
+        
+        .style-2 .user {
+            background: #E5F5E5;
+            border: 1px solid #B2E4B2;
+        }
+        
+        .style-2 .ai .sender {
+            color: #1864AB;
+        }
+        .style-2 .user .sender {
+            color: #2B8A3E;
+        }
+
+        /* Style 3: Tech Mono with JetBrains Mono */
+        .style-3 {
+            background: #0D1117;
+            font-family: 'JetBrains Mono', monospace;
+        }
+        .style-3 .ai {
+            color: #C9D1D9;
+        }
+        .style-3 .user {
+            color: #D7DFE7;
+        }
+        
+        .style-3 .message {
+            line-height: 1.5;
+            border: 1px solid #30363D;
+        }
+        
+        .style-3 .ai {
+            background: #131820;
+            border-left: 2px solid #58A6FF;
+        }
+        
+        .style-3 .user {
+            background: #1A252E;
+            border-right: 2px solid #7EE787;
+        }
+        
+        .style-3 .ai .sender {
+            color: #58A6FF;
+        }
+        .style-3 .user .sender {
+            color: #7EE787;
+        }
+
+        /* Style 4: Warm Professional with Inter */
+        .style-4 {
+            background: #2C1810;
+            font-family: 'Inter', sans-serif;
+        }
+        .style-4 .ai {
+            color: #E6D5D0;
+        }
+        .style-4 .user {
+            color: #F0E0DB;
+        }
+        
+        .style-4 .message {
+            line-height: 1.6;
+        }
+        
+        .style-4 .ai {
+            background: #382015;
+            border-bottom: 2px solid #E67E22;
+        }
+        
+        .style-4 .user {
+            background: #4D2D1E;
+            border-bottom: 2px solid #F1C40F;
+        }
+        
+        .style-4 .ai .sender {
+            color: #E67E22;
+        }
+        .style-4 .user .sender {
+            color: #F1C40F;
+        }
+
+        /* Style 5: Clean Code with Fira Code */
+        .style-5 {
+            background: #1B1F23;
+            font-family: 'Fira Code', monospace;
+        }
+        .style-5 .ai {
+            color: #E1E4E8;
+        }
+        .style-5 .user {
+            color: #EDF0F3;
+        }
+        
+        .style-5 .message {
+            line-height: 1.5;
+            border-radius: 4px;
+        }
+        
+        .style-5 .ai {
+            background: #313244;
+            border-left: 3px solid #79B8FF;
+        }
+        
+        .style-5 .user {
+            background: #45475A;
+            border-left: 3px solid #85E89D;
+        }
+        
+        .style-5 .ai .sender {
+            color: #79B8FF;
+        }
+        .style-5 .user .sender {
+            color: #85E89D;
+        }
+
+        /* Section Headers */
+        .style-header {
+            text-align: center;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            font-family: system-ui, -apple-system, sans-serif;
+            color: #666;
+            border-bottom: 1px solid #333;
+        }
+    </style>
+</head>
+<body>
+    <!-- Style 1 Demo -->
+    <div class="style-header">Style 1: Modern Dark with Space Grotesk</div>
+    <div class="style-section style-1">
+        <div class="chat-container">
+            <div class="message ai">
+                <div class="sender">AI:</div>
+                <div class="content">Les règles de commit ne sont pas respectées. Je propose qu'on définisse clairement les règles de développement.</div>
+            </div>
+            <div class="message user">
+                <div class="sender">USER:</div>
+                <div class="content">Je me demande vraiment si tu es à la pointe en dev...</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Style 2 Demo -->
+    <div class="style-header">Style 2: Elegant Light with Playfair Display</div>
+    <div class="style-section style-2">
+        <div class="chat-container">
+            <div class="message ai">
+                <div class="sender">AI:</div>
+                <div class="content">Les règles de commit ne sont pas respectées. Je propose qu'on définisse clairement les règles de développement.</div>
+            </div>
+            <div class="message user">
+                <div class="sender">USER:</div>
+                <div class="content">Je me demande vraiment si tu es à la pointe en dev...</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Style 3 Demo -->
+    <div class="style-header">Style 3: Tech Mono with JetBrains Mono</div>
+    <div class="style-section style-3">
+        <div class="chat-container">
+            <div class="message ai">
+                <div class="sender">AI:</div>
+                <div class="content">Les règles de commit ne sont pas respectées. Je propose qu'on définisse clairement les règles de développement.</div>
+            </div>
+            <div class="message user">
+                <div class="sender">USER:</div>
+                <div class="content">Je me demande vraiment si tu es à la pointe en dev...</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Style 4 Demo -->
+    <div class="style-header">Style 4: Warm Professional with Inter</div>
+    <div class="style-section style-4">
+        <div class="chat-container">
+            <div class="message ai">
+                <div class="sender">AI:</div>
+                <div class="content">Les règles de commit ne sont pas respectées. Je propose qu'on définisse clairement les règles de développement.</div>
+            </div>
+            <div class="message user">
+                <div class="sender">USER:</div>
+                <div class="content">Je me demande vraiment si tu es à la pointe en dev...</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Style 5 Demo -->
+    <div class="style-header">Style 5: Clean Code with Fira Code</div>
+    <div class="style-section style-5">
+        <div class="chat-container">
+            <div class="message ai">
+                <div class="sender">AI:</div>
+                <div class="content">Les règles de commit ne sont pas respectées. Je propose qu'on définisse clairement les règles de développement.</div>
+            </div>
+            <div class="message user">
+                <div class="sender">USER:</div>
+                <div class="content">Je me demande vraiment si tu es à la pointe en dev...</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
