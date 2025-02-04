@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dialogue Méta avec une IA</title>
+    <title>Style 1 - Left Fixed Scale</title>
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
     <style>
+        /* Base styles from index.html */
         * {
             margin: 0;
             padding: 0;
@@ -14,16 +15,163 @@
 
         body {
             font-family: 'Fira Code', monospace;
-            background: #1B1F23;
             line-height: 1.5;
+            position: relative;
+        }
+
+        /* Black background layer */
+        .background-layer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: #1B1F23;
+            z-index: 0;
+        }
+
+        /* Background pattern container */
+        .background-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            pointer-events: none;
+            opacity: 0.015;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .background-pattern svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Content wrapper */
+        .content-wrapper {
+            position: relative;
+            z-index: 2;
+            margin: 0 auto;
+            padding: 0;
+            min-height: 100vh;
+        }
+        
+        #chat, #epilogue {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .header {
+            color: #D1D5DA;
+            margin-bottom: 2rem;
+            background: var(--bg);
+            padding: 20px 0;
+        }
+
+        .header-wrapper {
+            position: relative;
+        }
+
+        .sticky-title {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 20px 0;
+            transition: all 0.3s ease;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            background: var(--bg);
+        }
+
+        .header-rest {
+            padding: 20px 0;
+            background: var(--bg);
+        }
+
+        .sticky-title.scrolled {
+            transform: scale(0.8);
+            transform-origin: left center;
+        }
+
+        /* Fixed scale on the left */
+        .scale {
+            pointer-events: none;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            height: 100%;
+            width: 100px;
+        }
+
+        .scale.left {
+            left: 0;
+        }
+
+        .scale.right {
+            right: 0;
+        }
+        
+        .scale svg {
+            width: 100%;
+            height: 100%;
+        }
+
+
+
+        /* Rest of the styles from index.html */
+        .message {
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 12px;
+            max-width: 80%;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 80px;
+            margin-right: 80px;
+        }
+
+        .message-content {
+            position: relative;
+            z-index: 2;
         }
 
         .ai {
             color: #D1D5DA;
+            background: #2A2B3C;
+            margin-right: auto;
         }
 
         .user {
             color: #DCE0E4;
+            background: #3E3F52;
+            margin-left: auto;
+        }
+
+        .message-icons {
+            position: absolute;
+            bottom: 8px;
+            right: 8px;
+            display: flex;
+            gap: 8px;
+            opacity: 0.6;
+            transition: opacity 0.2s;
+        }
+
+        .message:hover .message-icons {
+            opacity: 1;
+        }
+
+        .message-icon {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .message-icon:hover {
+            transform: scale(1.2);
         }
 
         .separator {
@@ -53,7 +201,7 @@
 
         .header {
             background: #2A2E33;
-            padding: 2rem;
+            padding: 3rem 1rem;
             border-bottom: 3px solid #C678DD;
         }
 
@@ -87,15 +235,16 @@
 
         .chat-container {
             max-width: 800px;
-            margin: 1rem auto;
-            padding: 0 1rem;
+            margin: 0 auto;
+            padding: 2rem 5px;
         }
 
         .message {
             padding: 15px;
-            border-radius: 8px;
+            border-radius: 4px;
             margin: 10px 0;
-            max-width: 80%;
+            max-width: 95%;
+            position: relative;
         }
 
         .ai {
@@ -113,6 +262,24 @@
         .sender {
             font-weight: 600;
             margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .sender-emoji {
+            font-size: 1.2em;
+        }
+
+        .pinned-emoji {
+            position: absolute;
+            bottom: -50px;
+            right: -18.6px;
+            font-size: 186px;
+            opacity: 0.144;
+            pointer-events: none;
+            z-index: 1;
+            transform: rotate(-30deg);
         }
 
         .ai .sender {
@@ -124,25 +291,141 @@
         }
 
         p {
-            margin-bottom: 0.8rem;
-            white-space: pre-wrap;
+            margin: 0.5em 0;
         }
 
-        @media (max-width: 600px) {
-            .message {
-                max-width: 90%;
-            }
-            
+        /* Tablet styles */
+        @media (min-width: 768px) {
             .header {
-                padding: 1rem;
+                padding: 3rem 2rem;
+            }
+
+            .chat-container {
+                padding: 2rem;
             }
         }
     </style>
 </head>
 <body>
-    <header class="header" id="header">
+    <div class="scale left">
+        <svg width="100%" height="100%">
+            <!-- Vertical line -->
+            <line x1="100%" y1="0" x2="100%" y2="100%" stroke="rgba(121, 184, 255, 0.4)" stroke-width="1"/>
+        </svg>
+    </div>
+    <div class="scale right">
+        <svg width="100%" height="100%">
+            <!-- Vertical line -->
+            <line x1="0" y1="0" x2="0" y2="100%" stroke="rgba(121, 184, 255, 0.4)" stroke-width="1"/>
+        </svg>
+    </div>
+    <script>
+        let lastScrollY = 0;
+        let ticking = false;
+        
+        function createRuler(side) {
+            const isLeft = side === 'left';
+            const svg = document.querySelector(`.scale.${side} svg`);
+            const height = Math.max(
+                document.documentElement.scrollHeight,
+                document.documentElement.offsetHeight,
+                document.documentElement.clientHeight
+            );
+            const majorStep = 50;
+            const minorStep = 10;
+            
+            const group = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+            svg.appendChild(group);
+            
+            for (let y = 0; y <= height; y += minorStep) {
+                const isMajor = y % majorStep === 0;
+                const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+                
+                if (isMajor) {
+                    line.setAttribute('x1', isLeft ? '60%' : '40%');
+                    line.setAttribute('stroke-width', '1');
+                    
+                    const text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+                    text.setAttribute('x', isLeft ? '2' : '98');
+                    text.setAttribute('text-anchor', isLeft ? 'start' : 'end');
+                    text.setAttribute('y', y + 5);
+                    text.setAttribute('fill', 'rgba(121, 184, 255, 0.4)');
+                    text.setAttribute('font-family', 'Monaco');
+                    text.setAttribute('font-size', '14');
+                    text.textContent = Math.floor(y / majorStep);
+                    group.appendChild(text);
+                } else {
+                    line.setAttribute('x1', isLeft ? '80%' : '20%');
+                    line.setAttribute('stroke-width', '0.5');
+                }
+                
+                line.setAttribute('y1', y);
+                line.setAttribute('x2', isLeft ? '100%' : '0');
+                line.setAttribute('y2', y);
+                line.setAttribute('stroke', 'rgba(121, 184, 255, 0.4)');
+                group.appendChild(line);
+            }
+            
+            updateParallax();
+        }
+        
+        function updateParallax() {
+            const leftGroup = document.querySelector('.scale.left svg g');
+            const rightGroup = document.querySelector('.scale.right svg g');
+            if (!leftGroup || !rightGroup) return;
+            
+            const parallaxY = -window.scrollY * 0.2;
+            
+            const transition = 'transform 0.3s cubic-bezier(0.1, 0.7, 0.1, 1)';
+            leftGroup.style.transition = transition;
+            rightGroup.style.transition = transition;
+            
+            leftGroup.style.transform = `translateY(${parallaxY}px)`;
+            rightGroup.style.transform = `translateY(${parallaxY}px)`;
+            
+            ticking = false;
+        }
+        
+        function onScroll() {
+            lastScrollY = window.scrollY;
+            if (!ticking) {
+                requestAnimationFrame(() => {
+                    updateParallax();
+                    updateHeader();
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        }
+
+        function updateHeader() {
+            const stickyTitle = document.querySelector('.sticky-title');
+            if (stickyTitle) {
+                stickyTitle.classList.toggle('scrolled', window.scrollY > 50);
+            }
+        }
+        
+        window.addEventListener('scroll', onScroll);
+        // Create ruler after content is loaded and rendered
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                createRuler('left');
+                createRuler('right');
+            }, 100);
+        });
+    </script>
+    <div class="background-layer"></div>
+    <div class="background-pattern">
+        <!-- SVG pattern will be inserted here by JavaScript -->
+    </div>
+    <div class="content-wrapper">
+    <div class="scale">
+        <!-- Scale lines and numbers will be added by JavaScript -->
+    </div>
+
+    <div class="header" id="header">
         <!-- Header content will be injected here -->
-    </header>
+    </div>
 
     <div class="chat-container" id="chat">
         <!-- Chat content will be injected here -->
@@ -167,24 +450,77 @@
         // Function to create header content
         function createHeader(data) {
             return `
-                <h1>${data.title}</h1>
-                <h2>${data.subtitle}</h2>
-                <h3>${data.context}</h3>
-                <h4>${data.note}</h4>
+                <div class="header-wrapper">
+                    <div class="sticky-title">
+                        <h1>${data.title}</h1>
+                    </div>
+                    <div class="header-rest">
+                        <h2>${data.subtitle}</h2>
+                        <h3>${data.context}</h3>
+                        <h4>${data.note}</h4>
+                    </div>
+                </div>
             `;
         }
 
         // Function to create chat messages
         function createMessages(data) {
-            return data.messages.map(msg => {
+            const container = document.createElement('div');
+            data.messages.forEach(msg => {
                 const emoji = msg.sender === 'AI' ? '🤖' : '👨‍💻';
-                return `
-                    <div class="message ${msg.sender.toLowerCase()}">
-                        <div class="sender">${emoji} ${msg.sender}</div>
-                        <p>${msg.content}</p>
-                    </div>
-                `;
-            }).join('');
+                
+                const messageDiv = document.createElement('div');
+                messageDiv.className = `message ${msg.sender.toLowerCase()}`;
+                
+                const messageContent = document.createElement('div');
+                messageContent.className = 'message-content';
+                
+                const senderDiv = document.createElement('div');
+                senderDiv.className = 'sender';
+                senderDiv.textContent = `${emoji} ${msg.sender}`;
+                
+                const contentP = document.createElement('p');
+                contentP.textContent = msg.content;
+                
+                const pinnedEmoji = document.createElement('div');
+                pinnedEmoji.className = 'pinned-emoji';
+                pinnedEmoji.textContent = emoji;
+                
+                messageContent.appendChild(senderDiv);
+                messageContent.appendChild(contentP);
+                messageDiv.appendChild(messageContent);
+                messageDiv.appendChild(pinnedEmoji);
+                container.appendChild(messageDiv);
+            });
+            return container.innerHTML;
+        }
+
+        // Function to create scale lines
+        function createScale() {
+            const scale = document.querySelector('.scale');
+            const steps = 50; // Number of lines
+            
+            for (let i = 0; i <= steps; i++) {
+                const percent = (i / steps) * 100;
+                
+                const line = document.createElement('div');
+                line.className = i % 5 === 0 ? 'scale-line' : 'scale-line-half';
+                line.style.top = `${percent}%`;
+                scale.appendChild(line);
+                
+                if (i % 10 === 0) { // Add numbers every 10 steps
+                    const number = document.createElement('div');
+                    number.className = 'scale-number';
+                    number.textContent = i;
+                    number.style.top = `${percent}%`;
+                    scale.appendChild(number);
+                    
+                    const tick = document.createElement('div');
+                    tick.className = 'scale-tick';
+                    tick.style.top = `${percent}%`;
+                    scale.appendChild(tick);
+                }
+            }
         }
 
         // Initialize the page
@@ -199,6 +535,8 @@
                 document.getElementById('header').innerHTML = createHeader(titles);
                 document.getElementById('chat').innerHTML = createMessages(chat);
                 document.getElementById('epilogue').innerHTML = createMessages(epilogue);
+                
+                createScale();
             } catch (error) {
                 console.error('Error loading data:', error);
             }
@@ -206,6 +544,65 @@
 
         // Load the content when the page is ready
         document.addEventListener('DOMContentLoaded', init);
+        // Function to create SVG background pattern
+        function createBackgroundPattern() {
+            const container = document.querySelector('.background-pattern');
+            const height = Math.max(
+                document.body.scrollHeight,
+                document.body.offsetHeight,
+                document.documentElement.clientHeight,
+                document.documentElement.scrollHeight,
+                document.documentElement.offsetHeight
+            );
+
+            // Create SVG
+            const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+            svg.setAttribute('width', '100%');
+            svg.setAttribute('height', height);
+            svg.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+
+            // Create pattern
+            const spacing = 100; // Space between lines
+            const numLines = Math.ceil(height / spacing);
+            
+            for (let i = 0; i < numLines; i++) {
+                const y = i * spacing;
+                
+                // Create line
+                const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+                line.setAttribute('x1', '15%');
+                line.setAttribute('y1', y);
+                line.setAttribute('x2', '95%');
+                line.setAttribute('y2', y);
+                line.setAttribute('stroke', '#79B8FF');
+                line.setAttribute('stroke-width', '1');
+                line.setAttribute('stroke-dasharray', '2 4');
+                svg.appendChild(line);
+
+                // Add number
+                const text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+                text.setAttribute('x', '16%');
+                text.setAttribute('y', y + 4);
+                text.setAttribute('fill', '#79B8FF');
+                text.setAttribute('font-size', '12');
+                text.setAttribute('font-family', 'Fira Code');
+                text.textContent = (i * 5).toString().padStart(2, '0');
+                svg.appendChild(text);
+            }
+
+            container.innerHTML = '';
+            container.appendChild(svg);
+        }
+
+        // Update pattern on window resize
+        window.addEventListener('resize', createBackgroundPattern);
+
+        // Initialize pattern after content is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            init();
+            setTimeout(createBackgroundPattern, 100); // Small delay to ensure content is rendered
+        });
     </script>
+    </div>
 </body>
 </html>
