@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dialogue Méta avec une IA</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Fira Code', monospace;
+            background: #1B1F23;
+            line-height: 1.5;
+        }
+
+        .ai {
+            color: #D1D5DA;
+        }
+
+        .user {
+            color: #DCE0E4;
+        }
+
+        .separator {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+            text-align: center;
+            position: relative;
+        }
+        
+        .separator hr {
+            margin: 0;
+            border: none;
+            border-top: 1px solid #C678DD;
+        }
+        
+        .separator span {
+            background: #1B1F23;
+            padding: 0 1rem;
+            color: #C678DD;
+            font-weight: 600;
+            font-size: 1.2em;
+            position: relative;
+            top: -0.7em;
+            text-shadow: 0 0 8px rgba(198, 120, 221, 0.3);
+        }
+
+        .header {
+            background: #2A2E33;
+            padding: 2rem;
+            border-bottom: 3px solid #C678DD;
+        }
+
+        .header h1 {
+            color: #C678DD;
+            font-size: 1.8em;
+            margin-bottom: 1rem;
+        }
+
+        .header h2 {
+            color: #D1D5DA;
+            font-size: 1.2em;
+            margin-bottom: 1.5rem;
+        }
+
+        .header h3 {
+            color: #B9BDC1;
+            font-size: 1.1em;
+            font-weight: normal;
+            line-height: 1.4;
+            margin-bottom: 1rem;
+        }
+
+        .header h4 {
+            color: #A1A5A9;
+            font-size: 1em;
+            font-weight: normal;
+            font-style: italic;
+            line-height: 1.4;
+        }
+
+        .chat-container {
+            max-width: 800px;
+            margin: 1rem auto;
+            padding: 0 1rem;
+        }
+
+        .message {
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+            max-width: 80%;
+        }
+
+        .ai {
+            background: #2D2E3D;
+            margin-right: auto;
+            border-left: 3px solid #79B8FF;
+        }
+
+        .user {
+            background: #3D3F50;
+            margin-left: auto;
+            border-left: 3px solid #85E89D;
+        }
+
+        .sender {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .ai .sender {
+            color: #79B8FF;
+        }
+
+        .user .sender {
+            color: #85E89D;
+        }
+
+        p {
+            margin-bottom: 0.8rem;
+            white-space: pre-wrap;
+        }
+
+        @media (max-width: 600px) {
+            .message {
+                max-width: 90%;
+            }
+            
+            .header {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header" id="header">
+        <!-- Header content will be injected here -->
+    </header>
+
+    <div class="chat-container" id="chat">
+        <!-- Chat content will be injected here -->
+    </div>
+
+    <div class="separator">
+        <hr>
+        <span>Épilogue</span>
+    </div>
+
+    <div class="chat-container" id="epilogue">
+        <!-- Epilogue content will be injected here -->
+    </div>
+
+    <script>
+        // Function to load JSON data
+        async function loadJSON(url) {
+            const response = await fetch(url);
+            return await response.json();
+        }
+
+        // Function to create header content
+        function createHeader(data) {
+            return `
+                <h1>${data.title}</h1>
+                <h2>${data.subtitle}</h2>
+                <h3>${data.context}</h3>
+                <h4>${data.note}</h4>
+            `;
+        }
+
+        // Function to create chat messages
+        function createMessages(data) {
+            return data.messages.map(msg => {
+                const emoji = msg.sender === 'AI' ? '🤖' : '👨‍💻';
+                return `
+                    <div class="message ${msg.sender.toLowerCase()}">
+                        <div class="sender">${emoji} ${msg.sender}</div>
+                        <p>${msg.content}</p>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // Initialize the page
+        async function init() {
+            try {
+                const [titles, chat, epilogue] = await Promise.all([
+                    loadJSON('titles.json'),
+                    loadJSON('chat.json'),
+                    loadJSON('epilog.json')
+                ]);
+
+                document.getElementById('header').innerHTML = createHeader(titles);
+                document.getElementById('chat').innerHTML = createMessages(chat);
+                document.getElementById('epilogue').innerHTML = createMessages(epilogue);
+            } catch (error) {
+                console.error('Error loading data:', error);
+            }
+        }
+
+        // Load the content when the page is ready
+        document.addEventListener('DOMContentLoaded', init);
+    </script>
+</body>
+</html>
