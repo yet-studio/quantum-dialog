@@ -205,7 +205,11 @@
         
         function createRuler() {
             const svg = document.querySelector('.scale svg');
-            const height = window.innerHeight * 2;
+            const height = Math.max(
+                document.documentElement.scrollHeight,
+                document.documentElement.offsetHeight,
+                document.documentElement.clientHeight
+            );
             const majorStep = 50;
             const minorStep = 10;
             
@@ -264,7 +268,10 @@
         }
         
         window.addEventListener('scroll', onScroll);
-        window.addEventListener('load', createRuler);
+        // Create ruler after content is loaded and rendered
+        window.addEventListener('load', () => {
+            setTimeout(createRuler, 100);
+        });
     </script>
     <div class="background-layer"></div>
     <div class="background-pattern">
