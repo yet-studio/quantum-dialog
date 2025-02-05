@@ -336,36 +336,58 @@
         function createRuler(side) {
             const isLeft = side === 'left';
             const svg = document.querySelector(`.scale.${side} svg`);
+            
+            // Utiliser la hauteur totale du document
             const height = Math.max(
                 document.documentElement.scrollHeight,
                 document.documentElement.offsetHeight,
-                document.documentElement.clientHeight
+                document.documentElement.clientHeight,
+                document.body.scrollHeight
             );
-            const majorStep = 50;
-            const minorStep = 10;
+            
+            // Nettoyer le SVG existant
+            while (svg.firstChild) {
+                svg.removeChild(svg.firstChild);
+            }
+            
+            // Créer la ligne verticale principale
+            const mainLine = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+            mainLine.setAttribute('x1', isLeft ? '100%' : '0');
+            mainLine.setAttribute('y1', '0');
+            mainLine.setAttribute('x2', isLeft ? '100%' : '0');
+            mainLine.setAttribute('y2', height);
+            mainLine.setAttribute('stroke', 'rgba(121, 184, 255, 0.4)');
+            mainLine.setAttribute('stroke-width', '1');
+            svg.appendChild(mainLine);
             
             const group = document.createElementNS('http://www.w3.org/2000/svg', 'g');
             svg.appendChild(group);
+            
+            // Augmenter la densité des graduations
+            const majorStep = 100; // Graduations principales tous les 100px
+            const minorStep = 20;  // Graduations secondaires tous les 20px
             
             for (let y = 0; y <= height; y += minorStep) {
                 const isMajor = y % majorStep === 0;
                 const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
                 
+                // Ajuster la longueur des lignes
                 if (isMajor) {
                     line.setAttribute('x1', isLeft ? '60%' : '40%');
-                    line.setAttribute('stroke-width', '1');
+                    line.setAttribute('stroke-width', '1.5');
                     
+                    // Ajouter les numéros pour les graduations principales
                     const text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
-                    text.setAttribute('x', isLeft ? '2' : '98');
+                    text.setAttribute('x', isLeft ? '5' : '95');
                     text.setAttribute('text-anchor', isLeft ? 'start' : 'end');
                     text.setAttribute('y', y + 5);
-                    text.setAttribute('fill', 'rgba(121, 184, 255, 0.4)');
+                    text.setAttribute('fill', 'rgba(121, 184, 255, 0.6)');
                     text.setAttribute('font-family', 'Monaco');
-                    text.setAttribute('font-size', '14');
-                    text.textContent = Math.floor(y / majorStep);
+                    text.setAttribute('font-size', '12');
+                    text.textContent = (y / 100).toFixed(0);
                     group.appendChild(text);
                 } else {
-                    line.setAttribute('x1', isLeft ? '80%' : '20%');
+                    line.setAttribute('x1', isLeft ? '85%' : '15%');
                     line.setAttribute('stroke-width', '0.5');
                 }
                 
@@ -376,7 +398,8 @@
                 group.appendChild(line);
             }
             
-            updateParallax();
+            // Ajuster la hauteur du SVG
+            svg.style.height = `${height}px`;
         }
         
         function updateParallax() {
@@ -384,23 +407,16 @@
             const rightGroup = document.querySelector('.scale.right svg g');
             if (!leftGroup || !rightGroup) return;
             
-            const parallaxY = -window.scrollY * 0.2;
-            
-            const transition = 'transform 0.3s cubic-bezier(0.1, 0.7, 0.1, 1)';
-            leftGroup.style.transition = transition;
-            rightGroup.style.transition = transition;
-            
-            leftGroup.style.transform = `translateY(${parallaxY}px)`;
-            rightGroup.style.transform = `translateY(${parallaxY}px)`;
+            // Suppression de l'effet parallax pour plus de stabilité
+            leftGroup.style.transform = 'none';
+            rightGroup.style.transform = 'none';
             
             ticking = false;
         }
         
         function onScroll() {
-            lastScrollY = window.scrollY;
             if (!ticking) {
                 requestAnimationFrame(() => {
-                    updateParallax();
                     updateHeader();
                     ticking = false;
                 });
