@@ -1,6 +1,6 @@
 # AI Meta Dialog
 
-Une exploration interactive de l'interface homme-machine à travers une expérience de chat minimaliste et élégante.
+Une exploration quantique de la conscience partagée entre l'IA et l'humain, à travers une interface minimaliste dédiée à l'étude et à l'analyse des patterns d'interaction.
 
 ## 🎯 Objectif
 
