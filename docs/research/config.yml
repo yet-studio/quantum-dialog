@@ -1,0 +1,63 @@
+version: 1.0
+
+# Structure des dossiers
+directories:
+  reports:
+    - 2025-Q1     # Rapports trimestriels
+    - methodology # Documentation méthodologique
+    - technical   # Analyses techniques
+  protocols:      # Protocoles de recherche
+  data:          # Données et métriques
+  publications:   # Articles et publications
+
+# Standards de documentation
+standards:
+  file_naming:
+    pattern: "YYYY-MM-DD-{title}"
+    title_format: "kebab-case"
+    extensions: [".md"]
+  
+  metadata:
+    required:
+      - date
+      - author
+      - version
+      - tags
+    optional:
+      - reviewers
+      - status
+      - priority
+
+# Workflow de publication
+workflow:
+  stages:
+    - draft
+    - peer_review
+    - technical_validation
+    - publication
+  
+  reviewers:
+    minimum: 2
+    roles:
+      - technical_lead
+      - research_lead
+
+# Tags standards
+tags:
+  categories:
+    - methodology
+    - technical
+    - analysis
+    - results
+  
+  status:
+    - draft
+    - review
+    - approved
+    - published
+
+# Templates
+templates:
+  report: "templates/report.md"
+  protocol: "templates/protocol.md"
+  publication: "templates/publication.md"
