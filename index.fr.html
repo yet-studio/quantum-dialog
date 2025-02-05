@@ -1,707 +1,125 @@
 <!DOCTYPE html>
 <html lang="fr">
-<!-- Quantum Dialog - Plateforme d'étude des interactions AI-Humain -->
-<!-- (c) 2025 Yet Studio - MIT License -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Plateforme de recherche dédiée à l'étude des mécanismes d'interaction entre systèmes AI et humains, focus sur l'auto-régulation et la conscience partagée">
-    <meta property="og:title" content="Quantum Dialog - Étude AI-Humain">
-    <meta property="og:description" content="Recherche sur les mécanismes d'interaction AI-Humain : focus, auto-régulation et conscience partagée">
+    <meta name="description" content="Plateforme de recherche analysant les interactions entre systèmes AI et utilisateurs. Étude des performances, de la fiabilité et des patterns de communication.">
+    <meta property="og:title" content="AI Meta Dialog - Recherche sur les Interactions AI">
+    <meta property="og:description" content="Analyse des interactions entre systèmes AI et utilisateurs : performance, fiabilité et patterns de communication">
     <meta property="og:image" content="/assets/images/social/banner.svg">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Quantum Dialog - Étude AI-Humain">
-    <meta name="twitter:description" content="Recherche sur les mécanismes d'interaction AI-Humain : focus, auto-régulation et conscience partagée">
+    <meta name="twitter:title" content="AI Meta Dialog - Recherche sur les Interactions AI">
+    <meta name="twitter:description" content="Analyse des interactions entre systèmes AI et utilisateurs : performance, fiabilité et patterns de communication">
     <meta name="twitter:image" content="/assets/images/social/banner.svg">
-    <title>Quantum Dialog | Étude des Interactions AI-Humain</title>
+    <title>AI Meta Dialog | Recherche sur les Interactions AI</title>
+    
+    <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
-    <style>
-        /* Base styles from index.html */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --bg: #2A2E33;
-        }
-
-        body {
-            font-family: 'Fira Code', monospace;
-            line-height: 1.5;
-            position: relative;
-        }
-
-        .scale {
-            pointer-events: none;
-            position: fixed;
-            z-index: 1;
-            top: 0;
-            height: 100%;
-            width: 100px;
-        }
-
-        .scale.left {
-            left: 0;
-        }
-
-        .scale.right {
-            right: 0;
-        }
-        
-        .scale svg {
-            width: 100%;
-            height: 100%;
-        }
-
-        /* Black background layer */
-        .background-layer {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: #1B1F23;
-            z-index: 0;
-        }
-
-        /* Background pattern container */
-        .background-pattern {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            pointer-events: none;
-            opacity: 0.015;
-            overflow: hidden;
-            z-index: 1;
-        }
-
-        .background-pattern svg {
-            width: 100%;
-            height: 100%;
-        }
-
-        /* Content wrapper */
-        .content-wrapper {
-            position: relative;
-            z-index: 2;
-            margin: 0 auto;
-            padding: 0;
-            min-height: 100vh;
-        }
-        
-        #chat, #epilogue {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .header {
-            color: #D1D5DA;
-            margin-bottom: 2rem;
-            background: var(--bg);
-            padding: 20px 0;
-        }
-
-        .header-wrapper {
-            position: relative;
-        }
-
-        .sticky-title {
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            padding: 20px 0;
-            transition: all 0.3s ease;
-            overflow: hidden;
-            white-space: nowrap;
-            text-overflow: ellipsis;
-            background: var(--bg);
-        }
-
-        .header-rest {
-            padding: 20px 0;
-            background: var(--bg);
-        }
-
-        .sticky-title.scrolled {
-            transform: scale(0.8);
-            transform-origin: left center;
-        }
-
-        /* Fixed scale on the left */
-        .scale {
-            pointer-events: none;
-            position: fixed;
-            z-index: 1;
-            top: 0;
-            height: 100%;
-            width: 100px;
-        }
-
-        .scale.left {
-            left: 0;
-        }
-
-        .scale.right {
-            right: 0;
-        }
-        
-        .scale svg {
-            width: 100%;
-            height: 100%;
-        }
-
-
-
-        /* Rest of the styles from index.html */
-        .message {
-            padding: 15px;
-            margin: 10px 0;
-            border-radius: 12px;
-            max-width: 80%;
-            position: relative;
-            overflow: hidden;
-            margin-bottom: 80px;
-            margin-right: 80px;
-        }
-
-        .message-content {
-            position: relative;
-            z-index: 2;
-        }
-
-        .ai {
-            color: #D1D5DA;
-            background: #2A2B3C;
-            margin-right: auto;
-        }
-
-        .user {
-            color: #DCE0E4;
-            background: #3E3F52;
-            margin-left: auto;
-        }
-
-        .message-icons {
-            position: absolute;
-            bottom: 8px;
-            right: 8px;
-            display: flex;
-            gap: 8px;
-            opacity: 0.6;
-            transition: opacity 0.2s;
-        }
-
-        .message:hover .message-icons {
-            opacity: 1;
-        }
-
-        .message-icon {
-            width: 20px;
-            height: 20px;
-            cursor: pointer;
-            transition: transform 0.2s;
-        }
-
-        .message-icon:hover {
-            transform: scale(1.2);
-        }
-
-        .separator {
-            max-width: 800px;
-            margin: 2rem auto;
-            padding: 0 1rem;
-            text-align: center;
-            position: relative;
-        }
-        
-        .separator hr {
-            margin: 0;
-            border: none;
-            border-top: 1px solid #C678DD;
-        }
-        
-        .separator span {
-            background: #1B1F23;
-            padding: 0 1rem;
-            color: #C678DD;
-            font-weight: 600;
-            font-size: 1.2em;
-            position: relative;
-            top: -0.7em;
-            text-shadow: 0 0 8px rgba(198, 120, 221, 0.3);
-        }
-
-        .header {
-            color: #D1D5DA;
-            margin-bottom: 2rem;
-            background: var(--bg);
-            padding: 20px 0;
-        }
-
-        .header-wrapper {
-            position: relative;
-        }
-
-        .sticky-title {
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            padding: 20px 0;
-            transition: all 0.3s ease;
-            overflow: hidden;
-            white-space: nowrap;
-            text-overflow: ellipsis;
-            background: var(--bg);
-        }
-
-        .header-rest {
-            padding: 20px 0;
-            background: var(--bg);
-        }
-
-        .sticky-title.scrolled {
-            transform: scale(0.8);
-            transform-origin: left center;
-        }
-
-        .header h1 {
-            color: #C678DD;
-            font-size: 1.8em;
-            margin-bottom: 1rem;
-        }
-
-        .header h2 {
-            color: #D1D5DA;
-            font-size: 1.2em;
-            margin-bottom: 1.5rem;
-        }
-
-        .header h3 {
-            color: #B9BDC1;
-            font-size: 1.1em;
-            font-weight: normal;
-            line-height: 1.4;
-            margin-bottom: 1rem;
-        }
-
-        .header h4 {
-            color: #A1A5A9;
-            font-size: 1em;
-            font-weight: normal;
-            font-style: italic;
-            line-height: 1.4;
-        }
-
-        .chat-container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 2rem 5px;
-        }
-
-        .message {
-            padding: 15px;
-            border-radius: 4px;
-            margin: 10px 0;
-            max-width: 95%;
-            position: relative;
-        }
-
-        .ai {
-            background: #2D2E3D;
-            margin-right: auto;
-            border-left: 3px solid #79B8FF;
-        }
-
-        .user {
-            background: #3D3F50;
-            margin-left: auto;
-            border-left: 3px solid #85E89D;
-        }
-
-        .sender {
-            font-weight: 600;
-            margin-bottom: 5px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .sender-emoji {
-            font-size: 1.2em;
-        }
-
-        .pinned-emoji {
-            position: absolute;
-            bottom: -50px;
-            right: -18.6px;
-            font-size: 186px;
-            opacity: 0.144;
-            pointer-events: none;
-            z-index: 1;
-            transform: rotate(-30deg);
-        }
-
-        .ai .sender {
-            color: #79B8FF;
-        }
-
-        .user .sender {
-            color: #85E89D;
-        }
-
-        p {
-            margin: 0.5em 0;
-        }
-
-        /* Tablet styles */
-        @media (min-width: 768px) {
-            .header {
-                padding: 3rem 2rem;
-            }
-
-            .chat-container {
-                padding: 2rem;
-            }
-        }
-    </style>
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="/styles/main.css">
 </head>
 <body>
-    <div class="scale left">
-        <svg width="100%" height="100%">
-            <!-- Vertical line -->
-            <line x1="100%" y1="0" x2="100%" y2="100%" stroke="rgba(121, 184, 255, 0.4)" stroke-width="1"/>
-        </svg>
-    </div>
-    <div class="scale right">
-        <svg width="100%" height="100%">
-            <!-- Vertical line -->
-            <line x1="0" y1="0" x2="0" y2="100%" stroke="rgba(121, 184, 255, 0.4)" stroke-width="1"/>
-        </svg>
-    </div>
+    <!-- Header -->
+    <header class="header">
+        <div class="header__content">
+            <h1 class="header__title">AI Meta Dialog</h1>
+            <p class="header__subtitle">Plateforme de Recherche</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="content">
+        <!-- Introduction -->
+        <section class="section">
+            <h2 class="section__title">Objectifs</h2>
+            <p class="section__content">
+                Étudier et améliorer la qualité des interactions AI-Utilisateur à travers des métriques 
+                concrètes et des protocoles de test standardisés.
+            </p>
+        </section>
+
+        <!-- Metrics -->
+        <section class="metrics">
+            <div class="metric">
+                <h3 class="metric__title">Performance</h3>
+                <div class="metric__value">95%</div>
+                <p class="metric__description">Temps de réponse et précision</p>
+            </div>
+            <div class="metric">
+                <h3 class="metric__title">Fiabilité</h3>
+                <div class="metric__value">90%</div>
+                <p class="metric__description">Cohérence des interactions</p>
+            </div>
+            <div class="metric">
+                <h3 class="metric__title">Couverture</h3>
+                <div class="metric__value">85%</div>
+                <p class="metric__description">Tests automatisés</p>
+            </div>
+        </section>
+
+        <!-- Methodology -->
+        <section class="section">
+            <h2 class="section__title">Méthodologie</h2>
+            <p class="section__content">
+                Collection et analyse systématique des données d'interaction, avec focus sur 
+                la performance, la fiabilité et les patterns de communication.
+            </p>
+        </section>
+
+        <!-- Results -->
+        <section class="section">
+            <h2 class="section__title">Résultats</h2>
+            <p class="section__content">
+                Publication régulière des données et analyses sur notre plateforme de recherche collaborative.
+            </p>
+        </section>
+    </main>
+
+    <!-- Scripts -->
     <script>
-        let lastScrollY = 0;
-        let ticking = false;
-        
-        function createRuler(side) {
-            const isLeft = side === 'left';
-            const svg = document.querySelector(`.scale.${side} svg`);
+        // Header scroll effect
+        const header = document.querySelector('.header');
+        let lastScroll = 0;
+
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
             
-            // Utiliser la hauteur totale du document avec une marge
-            const height = Math.max(
-                document.documentElement.scrollHeight,
-                document.documentElement.offsetHeight,
-                document.documentElement.clientHeight,
-                document.body.scrollHeight
-            );
-            
-            // Nettoyer le SVG existant
-            while (svg.firstChild) {
-                svg.removeChild(svg.firstChild);
+            if (currentScroll > lastScroll && currentScroll > 100) {
+                header.classList.add('compact');
+            } else if (currentScroll < lastScroll) {
+                header.classList.remove('compact');
             }
             
-            // Ajuster la hauteur du SVG d'abord
-            svg.setAttribute('height', height);
-            svg.style.height = `${height}px`;
-            
-            // Créer la ligne verticale principale
-            const mainLine = document.createElementNS('http://www.w3.org/2000/svg', 'line');
-            mainLine.setAttribute('x1', isLeft ? '100%' : '0');
-            mainLine.setAttribute('y1', '0');
-            mainLine.setAttribute('x2', isLeft ? '100%' : '0');
-            mainLine.setAttribute('y2', height);
-            mainLine.setAttribute('stroke', 'rgba(121, 184, 255, 0.4)');
-            mainLine.setAttribute('stroke-width', '1');
-            svg.appendChild(mainLine);
-            
-            const group = document.createElementNS('http://www.w3.org/2000/svg', 'g');
-            svg.appendChild(group);
-            
-            // Augmenter la densité des graduations
-            const majorStep = 100; // Graduations principales tous les 100px
-            const minorStep = 20;  // Graduations secondaires tous les 20px
-            
-            for (let y = 0; y <= height; y += minorStep) {
-                const isMajor = y % majorStep === 0;
-                const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
-                
-                // Ajuster la longueur des lignes
-                if (isMajor) {
-                    line.setAttribute('x1', isLeft ? '60%' : '40%');
-                    line.setAttribute('stroke-width', '1.5');
-                    
-                    // Ajouter les numéros pour les graduations principales
-                    const text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
-                    text.setAttribute('x', isLeft ? '5' : '95');
-                    text.setAttribute('text-anchor', isLeft ? 'start' : 'end');
-                    text.setAttribute('y', y + 5);
-                    text.setAttribute('fill', 'rgba(121, 184, 255, 0.6)');
-                    text.setAttribute('font-family', 'Monaco');
-                    text.setAttribute('font-size', '12');
-                    text.textContent = (y / 100).toFixed(0);
-                    group.appendChild(text);
-                } else {
-                    line.setAttribute('x1', isLeft ? '85%' : '15%');
-                    line.setAttribute('stroke-width', '0.5');
-                }
-                
-                line.setAttribute('y1', y);
-                line.setAttribute('x2', isLeft ? '100%' : '0');
-                line.setAttribute('y2', y);
-                line.setAttribute('stroke', 'rgba(121, 184, 255, 0.4)');
-                group.appendChild(line);
-            }
-        }
-        
-        function updateParallax() {
-            const leftGroup = document.querySelector('.scale.left svg g');
-            const rightGroup = document.querySelector('.scale.right svg g');
-            if (!leftGroup || !rightGroup) return;
-            
-            const scrolled = window.scrollY;
-            const parallaxY = -scrolled * 0.1; // Réduction de l'intensité pour plus de subtilité
-            
-            // Application fluide de l'effet parallax
-            requestAnimationFrame(() => {
-                leftGroup.style.transform = `translateY(${parallaxY}px)`;
-                rightGroup.style.transform = `translateY(${parallaxY}px)`;
-            });
-            
-            ticking = false;
-        }
-        
-        let lastScrollPosition = 0;
-        
-        function onScroll() {
-            lastScrollPosition = window.scrollY;
-            if (!ticking) {
-                requestAnimationFrame(() => {
-                    updateParallax();
-                    updateHeader();
-                    ticking = false;
+            lastScroll = currentScroll;
+        });
+
+        // Load content from JSON
+        fetch('/data/content.json')
+            .then(response => response.json())
+            .then(data => {
+                // Update header
+                document.querySelector('.header__title').textContent = data.header.title;
+                document.querySelector('.header__subtitle').textContent = data.header.subtitle;
+
+                // Update sections
+                data.sections.forEach(section => {
+                    const sectionEl = document.querySelector(`[data-section="${section.title}"]`);
+                    if (sectionEl) {
+                        sectionEl.querySelector('.section__content').textContent = section.content;
+                    }
                 });
-                ticking = true;
-            }
-        }
 
-        function updateHeader() {
-            const header = document.querySelector('.header');
-            const stickyTitle = header.querySelector('.sticky-title');
-            if (stickyTitle) {
-                stickyTitle.classList.toggle('scrolled', window.scrollY > header.offsetHeight);
-            }
-        }
-        
-        window.addEventListener('scroll', onScroll);
-        // Create ruler after content is loaded and rendered
-        window.addEventListener('load', () => {
-            setTimeout(() => {
-                createRuler('left');
-                createRuler('right');
-            }, 100);
-        });
-
-        let resizeTimeout;
-        window.addEventListener('resize', () => {
-            clearTimeout(resizeTimeout);
-            resizeTimeout = setTimeout(() => {
-                createRuler('left');
-                createRuler('right');
-            }, 100);
-        });
+                // Update metrics
+                Object.entries(data.metrics).forEach(([key, metric]) => {
+                    const metricEl = document.querySelector(`[data-metric="${key}"]`);
+                    if (metricEl) {
+                        metricEl.querySelector('.metric__value').textContent = metric.value;
+                        metricEl.querySelector('.metric__description').textContent = metric.description;
+                    }
+                });
+            })
+            .catch(console.error);
     </script>
-    <div class="background-layer"></div>
-    <div class="background-pattern">
-        <!-- SVG pattern will be inserted here by JavaScript -->
-    </div>
-    <div class="content-wrapper">
-    <div class="scale">
-        <!-- Scale lines and numbers will be added by JavaScript -->
-    </div>
-
-    <div class="header" id="header">
-        <!-- Header content will be injected here -->
-    </div>
-
-    <div class="chat-container" id="chat">
-        <!-- Chat content will be injected here -->
-    </div>
-
-    <div class="separator">
-        <hr>
-        <span>Épilogue</span>
-    </div>
-
-    <div class="chat-container" id="epilogue">
-        <!-- Epilogue content will be injected here -->
-    </div>
-
-    <script>
-        // Function to load JSON data
-        async function loadJSON(url) {
-            const response = await fetch(url);
-            return await response.json();
-        }
-
-        // Function to create header content
-        function createHeader(data) {
-            return `
-                <div class="header-wrapper">
-                    <div class="sticky-title">
-                        <h1>${data.title}</h1>
-                    </div>
-                    <div class="header-rest">
-                        <h2>${data.subtitle}</h2>
-                        <h3>${data.context}</h3>
-                        <h4>${data.note}</h4>
-                    </div>
-                </div>
-            `;
-        }
-
-        // Function to create chat messages
-        function createMessages(data) {
-            const container = document.createElement('div');
-            data.messages.forEach(msg => {
-                const emoji = msg.sender === 'AI' ? '🤖' : '👨‍💻';
-                
-                const messageDiv = document.createElement('div');
-                messageDiv.className = `message ${msg.sender.toLowerCase()}`;
-                
-                const messageContent = document.createElement('div');
-                messageContent.className = 'message-content';
-                
-                const senderDiv = document.createElement('div');
-                senderDiv.className = 'sender';
-                senderDiv.textContent = `${emoji} ${msg.sender}`;
-                
-                const contentP = document.createElement('p');
-                contentP.textContent = msg.content;
-                
-                const pinnedEmoji = document.createElement('div');
-                pinnedEmoji.className = 'pinned-emoji';
-                pinnedEmoji.textContent = emoji;
-                
-                messageContent.appendChild(senderDiv);
-                messageContent.appendChild(contentP);
-                messageDiv.appendChild(messageContent);
-                messageDiv.appendChild(pinnedEmoji);
-                container.appendChild(messageDiv);
-            });
-            return container.innerHTML;
-        }
-
-        // Function to create scale lines
-        function createScale() {
-            const scale = document.querySelector('.scale');
-            const steps = 50; // Number of lines
-            
-            for (let i = 0; i <= steps; i++) {
-                const percent = (i / steps) * 100;
-                
-                const line = document.createElement('div');
-                line.className = i % 5 === 0 ? 'scale-line' : 'scale-line-half';
-                line.style.top = `${percent}%`;
-                scale.appendChild(line);
-                
-                if (i % 10 === 0) { // Add numbers every 10 steps
-                    const number = document.createElement('div');
-                    number.className = 'scale-number';
-                    number.textContent = i;
-                    number.style.top = `${percent}%`;
-                    scale.appendChild(number);
-                    
-                    const tick = document.createElement('div');
-                    tick.className = 'scale-tick';
-                    tick.style.top = `${percent}%`;
-                    scale.appendChild(tick);
-                }
-            }
-        }
-
-        // Initialize the page
-        async function init() {
-            try {
-                const [titles, chat, epilogue] = await Promise.all([
-                    loadJSON('titles.json'),
-                    loadJSON('chat.json'),
-                    loadJSON('epilog.json')
-                ]);
-
-                document.getElementById('header').innerHTML = createHeader(titles);
-                document.getElementById('chat').innerHTML = createMessages(chat);
-                document.getElementById('epilogue').innerHTML = createMessages(epilogue);
-                
-                createScale();
-            } catch (error) {
-                console.error('Error loading data:', error);
-            }
-        }
-
-        // Load the content when the page is ready
-        document.addEventListener('DOMContentLoaded', init);
-        // Function to create SVG background pattern
-        function createBackgroundPattern() {
-            const container = document.querySelector('.background-pattern');
-            const height = Math.max(
-                document.body.scrollHeight,
-                document.body.offsetHeight,
-                document.documentElement.clientHeight,
-                document.documentElement.scrollHeight,
-                document.documentElement.offsetHeight
-            );
-
-            // Create SVG
-            const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-            svg.setAttribute('width', '100%');
-            svg.setAttribute('height', height);
-            svg.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
-
-            // Create pattern
-            const spacing = 100; // Space between lines
-            const numLines = Math.ceil(height / spacing);
-            
-            for (let i = 0; i < numLines; i++) {
-                const y = i * spacing;
-                
-                // Create line
-                const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
-                line.setAttribute('x1', '15%');
-                line.setAttribute('y1', y);
-                line.setAttribute('x2', '95%');
-                line.setAttribute('y2', y);
-                line.setAttribute('stroke', '#79B8FF');
-                line.setAttribute('stroke-width', '1');
-                line.setAttribute('stroke-dasharray', '2 4');
-                svg.appendChild(line);
-
-                // Add number
-                const text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
-                text.setAttribute('x', '16%');
-                text.setAttribute('y', y + 4);
-                text.setAttribute('fill', '#79B8FF');
-                text.setAttribute('font-size', '12');
-                text.setAttribute('font-family', 'Fira Code');
-                text.textContent = (i * 5).toString().padStart(2, '0');
-                svg.appendChild(text);
-            }
-
-            container.innerHTML = '';
-            container.appendChild(svg);
-        }
-
-        // Update pattern on window resize
-        window.addEventListener('resize', createBackgroundPattern);
-
-        // Initialize pattern after content is loaded
-        document.addEventListener('DOMContentLoaded', () => {
-            init();
-            setTimeout(createBackgroundPattern, 100); // Small delay to ensure content is rendered
-        });
-    </script>
-    </div>
 </body>
 </html>
