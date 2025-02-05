@@ -2,7 +2,7 @@
 
 # AI Meta Dialog
 
-*Étude des Mécanismes d'Auto-Régulation dans les Interactions AI-Humain*
+*Plateforme d'étude des interactions entre systèmes AI et utilisateurs*
 
 [![Research](https://img.shields.io/badge/Type-Research-blue.svg)](docs/studies/)
 [![Status](https://img.shields.io/badge/Status-Active-success.svg)](docs/ROADMAP.md)
@@ -12,18 +12,18 @@
 
 ## 🔮 Vue d'Ensemble
 
-**AI Meta Dialog** explore les mécanismes fondamentaux des interactions entre systèmes AI et humains, en se concentrant sur :
-- L'auto-régulation des systèmes AI
-- Les patterns de focus et de récupération
-- La conscience partagée dans le dialogue
+**AI Meta Dialog** est un projet de recherche qui étudie les interactions entre systèmes AI et utilisateurs, avec un focus sur :
+- Les mécanismes de maintien du contexte
+- Les patterns de communication
+- L'efficacité des échanges
 
 ## 📘 Ressources Principales
 
 ### 🔬 Études et Analyses
-- [Études Comportementales](docs/studies/ai-behavior/)
-  - [Mécanismes de Focus](docs/studies/ai-behavior/focus-loss-analysis.md)
-  - [Passerelles Système](docs/studies/ai-behavior/ai-system-bridges.md)
-  - [Patterns de Récupération](docs/studies/ai-behavior/focus-recovery-mechanism.md)
+- [Études des Interactions](docs/studies/ai-behavior/)
+  - [Gestion du Contexte](docs/studies/ai-behavior/focus-loss-analysis.md)
+  - [Communication Système](docs/studies/ai-behavior/ai-system-bridges.md)
+  - [Résolution d'Erreurs](docs/studies/ai-behavior/focus-recovery-mechanism.md)
 
 ### 🌐 Plateforme Interactive
 - [quantum-dialog.research](https://quantum-dialog.research) *(bientôt disponible)*
@@ -37,23 +37,23 @@
 ### Pour la Communauté Scientifique
 ```mermaid
 graph TD
-    A[Observation] --> B[Analyse]
-    B --> C[Modélisation]
-    C --> D[Validation]
+    A[Collecte] --> B[Analyse]
+    B --> C[Tests]
+    C --> D[Publication]
     D --> A
 ```
 
-- **Méthodologie**: Approche empirique basée sur l'observation directe
-- **Métriques**: Mesures quantitatives du focus et de la cohérence
-- **Validation**: Protocoles reproductibles et données ouvertes
+- **Méthodologie**: Collecte et analyse de données d'interaction
+- **Métriques**: Mesures de performance et de fiabilité
+- **Validation**: Tests reproductibles et données ouvertes
 
 ### Pour les Développeurs
 ```typescript
-interface AIBehaviorMetrics {
-  focusLevel: number;      // 0-1 scale
-  contextCoherence: number; // 0-1 scale
-  recoveryTime: number;     // ms
-  interactionPatterns: Pattern[];
+interface InteractionMetrics {
+  contextAccuracy: number;  // 0-100%
+  responseTime: number;     // ms
+  successRate: number;      // 0-100%
+  errorPatterns: string[];
 }
 ```
 
@@ -63,20 +63,20 @@ interface AIBehaviorMetrics {
 
 ## 📓 Méthodologie
 
-### Infrastructure d'Observation
-- Interface web minimaliste comme terrain d'expérimentation
-- Collecte de données en temps réel
-- Analyse automatique des patterns
+### Infrastructure
+- Interface web pour les tests
+- Collecte de données
+- Analyse des résultats
 
-### Outils de Mesure
-- Détection de perte de focus
-- Mesure des temps de récupération
-- Évaluation de la cohérence contextuelle
+### Mesures
+- Précision des réponses
+- Temps de traitement
+- Taux de succès
 
 ### Validation
-- Tests comportementaux automatisés
+- Tests automatisés
 - Métriques de performance
-- Rapports d'analyse détaillés
+- Documentation des résultats
 
 ## 💻 Infrastructure Technique
 
@@ -118,15 +118,15 @@ import { InteractionObserver, MetricsVisualizer } from '@quantum/core'
 
 ### Objectifs de Qualité
 ```yaml
-performance:
-  focus_detection: 99.9%
-  context_coherence: 95%
-  recovery_time: <100ms
+objectifs:
+  précision: >95%
+  performance: <200ms
+  fiabilité: >90%
 
 validation:
-  protocols: peer-review
-  data: open-access
-  code: MIT license
+  tests: automatisés
+  données: publiques
+  code: MIT
 ```
 
 ## 📜 Licence
