@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="fr">
-<!-- Quantum Dialog - Une exploration quantique de la conscience partagée entre l'IA et l'humain -->
+<!-- Quantum Dialog - Plateforme d'étude des interactions AI-Humain -->
 <!-- (c) 2025 Yet Studio - MIT License -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Une exploration quantique de la conscience partagée entre l'IA et l'humain">
-    <meta property="og:title" content="Quantum Dialog">
-    <meta property="og:description" content="Une exploration quantique de la conscience partagée entre l'IA et l'humain">
+    <meta name="description" content="Plateforme de recherche dédiée à l'étude des mécanismes d'interaction entre systèmes AI et humains, focus sur l'auto-régulation et la conscience partagée">
+    <meta property="og:title" content="Quantum Dialog - Étude AI-Humain">
+    <meta property="og:description" content="Recherche sur les mécanismes d'interaction AI-Humain : focus, auto-régulation et conscience partagée">
     <meta property="og:image" content="/assets/images/social/banner.svg">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Quantum Dialog">
-    <meta name="twitter:description" content="Une exploration quantique de la conscience partagée entre l'IA et l'humain">
+    <meta name="twitter:title" content="Quantum Dialog - Étude AI-Humain">
+    <meta name="twitter:description" content="Recherche sur les mécanismes d'interaction AI-Humain : focus, auto-régulation et conscience partagée">
     <meta name="twitter:image" content="/assets/images/social/banner.svg">
-    <title>Quantum Dialog | Exploration IA-Humain</title>
+    <title>Quantum Dialog | Étude des Interactions AI-Humain</title>
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
     <style>
         /* Base styles from index.html */
@@ -23,10 +23,36 @@
             box-sizing: border-box;
         }
 
+        :root {
+            --bg: #2A2E33;
+        }
+
         body {
             font-family: 'Fira Code', monospace;
             line-height: 1.5;
             position: relative;
+        }
+
+        .scale {
+            pointer-events: none;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            height: 100%;
+            width: 100px;
+        }
+
+        .scale.left {
+            left: 0;
+        }
+
+        .scale.right {
+            right: 0;
+        }
+        
+        .scale svg {
+            width: 100%;
+            height: 100%;
         }
 
         /* Black background layer */
@@ -210,9 +236,36 @@
         }
 
         .header {
-            background: #2A2E33;
-            padding: 3rem 1rem;
-            border-bottom: 3px solid #C678DD;
+            color: #D1D5DA;
+            margin-bottom: 2rem;
+            background: var(--bg);
+            padding: 20px 0;
+        }
+
+        .header-wrapper {
+            position: relative;
+        }
+
+        .sticky-title {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 20px 0;
+            transition: all 0.3s ease;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            background: var(--bg);
+        }
+
+        .header-rest {
+            padding: 20px 0;
+            background: var(--bg);
+        }
+
+        .sticky-title.scrolled {
+            transform: scale(0.8);
+            transform-origin: left center;
         }
 
         .header h1 {
@@ -337,7 +390,7 @@
             const isLeft = side === 'left';
             const svg = document.querySelector(`.scale.${side} svg`);
             
-            // Utiliser la hauteur totale du document
+            // Utiliser la hauteur totale du document avec une marge
             const height = Math.max(
                 document.documentElement.scrollHeight,
                 document.documentElement.offsetHeight,
@@ -349,6 +402,10 @@
             while (svg.firstChild) {
                 svg.removeChild(svg.firstChild);
             }
+            
+            // Ajuster la hauteur du SVG d'abord
+            svg.setAttribute('height', height);
+            svg.style.height = `${height}px`;
             
             // Créer la ligne verticale principale
             const mainLine = document.createElementNS('http://www.w3.org/2000/svg', 'line');
@@ -397,9 +454,6 @@
                 line.setAttribute('stroke', 'rgba(121, 184, 255, 0.4)');
                 group.appendChild(line);
             }
-            
-            // Ajuster la hauteur du SVG
-            svg.style.height = `${height}px`;
         }
         
         function updateParallax() {
@@ -422,10 +476,8 @@
         let lastScrollPosition = 0;
         
         function onScroll() {
-            const currentScroll = window.scrollY;
-            
-            if (!ticking && Math.abs(currentScroll - lastScrollPosition) > 5) {
-                lastScrollPosition = currentScroll;
+            lastScrollPosition = window.scrollY;
+            if (!ticking) {
                 requestAnimationFrame(() => {
                     updateParallax();
                     updateHeader();
@@ -436,9 +488,10 @@
         }
 
         function updateHeader() {
-            const stickyTitle = document.querySelector('.sticky-title');
+            const header = document.querySelector('.header');
+            const stickyTitle = header.querySelector('.sticky-title');
             if (stickyTitle) {
-                stickyTitle.classList.toggle('scrolled', window.scrollY > 50);
+                stickyTitle.classList.toggle('scrolled', window.scrollY > header.offsetHeight);
             }
         }
         
@@ -446,6 +499,15 @@
         // Create ruler after content is loaded and rendered
         window.addEventListener('load', () => {
             setTimeout(() => {
+                createRuler('left');
+                createRuler('right');
+            }, 100);
+        });
+
+        let resizeTimeout;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(() => {
                 createRuler('left');
                 createRuler('right');
             }, 100);

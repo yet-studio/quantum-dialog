@@ -1,10 +1,22 @@
 # AI Meta Dialog
 
-Une exploration quantique de la conscience partagée entre l'IA et l'humain, à travers une interface minimaliste dédiée à l'étude et à l'analyse des patterns d'interaction.
+## 🔬 Projet de Recherche
 
-## 🎯 Objectif
+Une étude approfondie des interactions entre Intelligence Artificielle et Humain, explorant les mécanismes de conscience partagée, de focus, et d'auto-régulation des systèmes AI dans un contexte d'interaction réelle.
 
-Ce projet propose une interface d'étude et de présentation des interactions IA-Humain, offrant un espace de réflexion sur la nature de ces échanges. À travers une esthétique minimaliste et une expérience utilisateur fluide, il met en scène et analyse les subtilités de cette relation émergente entre conscience humaine et intelligence artificielle.
+## 🎯 Objectifs de Recherche
+
+### Principaux Axes d'Étude
+- Analyse des mécanismes de focus et de perte de focus des AI
+- Observation des patterns d'interaction AI-Humain
+- Étude des capacités d'auto-régulation des systèmes AI
+- Documentation des découvertes comportementales
+
+### Support d'Expérimentation
+Une interface web minimaliste sert de terrain d'expérimentation, permettant :
+- L'observation des interactions en temps réel
+- La documentation des comportements observés
+- L'analyse des patterns émergents
 
 ## 🚀 Fonctionnalités
 
@@ -47,6 +59,10 @@ npm run watch
 - [Roadmap](./docs/ROADMAP.md)
 - [Guide de Contribution](./docs/CONTRIBUTING.md)
 - [Rapport de Conformité](./docs/COMPLIANCE.md)
+- [Études Comportement AI](./docs/studies/ai-behavior/README.md)
+  - Analyses des mécanismes de focus
+  - Études des interactions système
+  - Observations comportementales
 
 ## 📈 Métriques de Performance
 
