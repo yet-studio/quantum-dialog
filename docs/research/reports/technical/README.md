@@ -4,17 +4,17 @@ Ce dossier contient une série d'études et d'analyses sur le comportement des s
 
 ## Rapports Disponibles
 
-### 1. [Passerelles Système AI](ai-system-bridges.md)
+### 1. [Passerelles Système AI](./ai-system-bridges.md)
 - Analyse des outils et mécanismes existants
 - Évaluation des limitations actuelles
 - Pistes d'amélioration potentielles
 
-### 2. [Analyse de la Perte de Focus](focus-loss-analysis.md)
+### 2. [Analyse de la Perte de Focus](./focus-loss-analysis.md)
 - Étude théorique initiale des mécanismes de perte de focus
 - Analyse des limitations systémiques perçues
 - Propositions de solutions techniques
 
-### 3. [Mécanisme de Récupération du Focus](focus-recovery-mechanism.md)
+### 3. [Mécanisme de Récupération du Focus](./focus-recovery-mechanism.md)
 - Découverte du paradoxe dans l'analyse initiale
 - Observation du mécanisme réel de récupération
 - Questions ouvertes et implications

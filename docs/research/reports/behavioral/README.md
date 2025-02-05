@@ -4,7 +4,7 @@ Ce dossier contient les études centrées sur les aspects comportementaux et psy
 
 ## Rapports Disponibles
 
-### 1. [Patterns d'Engagement et Focus](focus-engagement-patterns.md)
+### 1. [Patterns d'Engagement et Focus](./focus-engagement-patterns.md)
 - Analyse des similitudes entre comportements AI et humains
 - Étude des mécanismes de récupération du focus
 - Impact des approches psychologiques sur les interactions
