@@ -1,0 +1,25 @@
+{
+  "name": "ai-meta-dialog",
+  "version": "1.0.0",
+  "description": "AI Meta Dialog - Une exploration de l'interaction IA/Humain",
+  "scripts": {
+    "test": "npm run test:html && npm run test:css && npm run test:a11y && npm run test:performance",
+    "test:html": "html-validate index-scale-1.html",
+    "test:css": "stylelint \"**/*.html\"",
+    "test:a11y": "pa11y index-scale-1.html --reporter cli",
+    "test:performance": "lighthouse http://localhost:8080/index-scale-1.html --output json --output-path=./reports/lighthouse.json --chrome-flags=\"--headless\"",
+    "serve": "http-server -p 8080",
+    "watch": "chokidar \"*.html\" -c \"npm test\""
+  },
+  "devDependencies": {
+    "html-validate": "^7.0.0",
+    "stylelint": "^15.0.0",
+    "stylelint-config-standard": "^30.0.0",
+    "pa11y": "^6.0.0",
+    "lighthouse": "^10.0.0",
+    "http-server": "^14.0.0",
+    "chokidar-cli": "^3.0.0",
+    "markdown-it": "^13.0.0",
+    "postcss-html": "^1.5.0"
+  }
+}

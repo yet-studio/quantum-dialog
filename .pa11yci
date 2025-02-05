@@ -1,0 +1,29 @@
+{
+  "defaults": {
+    "standard": "WCAG2AA",
+    "runners": ["axe", "htmlcs"],
+    "ignore": [
+      "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Fail"
+    ],
+    "viewport": {
+      "width": 1280,
+      "height": 800
+    },
+    "timeout": 30000,
+    "wait": 1000,
+    "actions": [
+      "wait for element .message to be visible",
+      "wait for .message-content to be visible"
+    ]
+  },
+  "urls": [
+    {
+      "url": "index-scale-1.html",
+      "screenCapture": "./reports/screenshots/accessibility-check.png",
+      "threshold": 10,
+      "concurrency": 1
+    }
+  ],
+  "reporters": ["cli", "json"],
+  "jsonReportPath": "./reports/pa11y-results.json"
+}
