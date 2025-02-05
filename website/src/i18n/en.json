@@ -1,0 +1,66 @@
+{
+  "meta": {
+    "language": "English",
+    "code": "en"
+  },
+  "nav": {
+    "home": "Home",
+    "research": "Research",
+    "reports": {
+      "technical": "Technical Reports",
+      "behavioral": "Behavioral Analysis",
+      "meta": "Meta Analysis"
+    },
+    "about": "About"
+  },
+  "home": {
+    "title": "AI Meta Dialog",
+    "subtitle": "Studying AI-Human Interactions",
+    "intro": "An in-depth exploration of the dynamics between AI systems and humans",
+    "cta": "Explore Research",
+    "sections": {
+      "technical": {
+        "title": "Technical Analysis",
+        "description": "Exploring underlying mechanisms and system behaviors"
+      },
+      "behavioral": {
+        "title": "Behavioral Patterns",
+        "description": "Studying interactions and engagement dynamics"
+      },
+      "meta": {
+        "title": "Meta Reflections",
+        "description": "Perspectives on emerging fundamental principles"
+      }
+    }
+  },
+  "research": {
+    "title": "Our Research",
+    "description": "A multidisciplinary approach to AI-Human interaction",
+    "methodology": "Methodology",
+    "findings": "Findings",
+    "implications": "Implications"
+  },
+  "common": {
+    "readMore": "Read More",
+    "published": "Published on",
+    "updated": "Updated on",
+    "author": "Author",
+    "tags": "Tags",
+    "relatedContent": "Related Content",
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "retry": "Retry"
+  },
+  "footer": {
+    "rights": "All rights reserved",
+    "contact": "Contact",
+    "legal": "Legal",
+    "privacy": "Privacy"
+  },
+  "accessibility": {
+    "skipToMain": "Skip to main content",
+    "languageSelector": "Language selector",
+    "darkMode": "Dark mode",
+    "menuToggle": "Toggle menu"
+  }
+}
