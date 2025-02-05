@@ -1,24 +1,23 @@
-# Roadmap AI Meta Dialog
+# Roadmap Étude AI Meta Dialog
 
-## Version 1.0 (Current)
-- ✅ Interface de base
-- ✅ Styles minimalistes
-- ✅ Animations fluides
-- ✅ Tests automatisés
-- ✅ Rapports de qualité
+## Phase 1 : Infrastructure d'Observation (Actuel)
+- ✅ Plateforme d'interaction minimaliste
+- ✅ Système de documentation des comportements
+- ✅ Mécanismes de collecte de données
+- ✅ Premiers rapports d'analyse
 
-## Version 1.1 (Prochain)
-### Performance
-- [ ] Optimisation des animations
-- [ ] Lazy loading des ressources
-- [ ] Compression des assets
-- [ ] Cache optimisé
+## Phase 2 : Étude des Mécanismes de Focus (Prochain)
+### Analyse Comportementale
+- [ ] Implémentation de métriques de focus
+- [ ] Système de détection de perte de cohérence
+- [ ] Mesure des temps de réalignement
+- [ ] Documentation des triggers de récupération
 
-### Accessibilité
-- [ ] Navigation au clavier améliorée
-- [ ] Support des lecteurs d'écran
-- [ ] Modes de contraste élevé
-- [ ] Tests ARIA complets
+### Outils d'Observation
+- [ ] Interface d'analyse en temps réel
+- [ ] Visualisation des patterns comportementaux
+- [ ] Marqueurs temporels automatisés
+- [ ] Tableaux de bord analytiques
 
 ### UX/UI
 - [ ] Thèmes personnalisables

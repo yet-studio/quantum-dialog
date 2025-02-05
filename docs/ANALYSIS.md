@@ -1,23 +1,30 @@
-# Analyse Structurelle - Quantum Dialog
+# Analyse des Mécanismes d'Interaction AI-Humain
 
-## 1. Architecture de Présentation
+## 1. Points d'Observation
 
-### 1.1 Interface Visuelle (`quantum-interface.html`)
-- ✓ Présentation minimaliste favorisant l'observation
-- ✓ Séparation claire IA/Humain
-- ⚠️ Ajouter des marqueurs d'analyse temporelle
-- ⚠️ Intégrer des points d'observation spécifiques
+### 1.1 Mécanismes de Focus
+- ✓ Observation des patterns de perte/récupération de focus
+- ✓ Documentation des triggers de réalignement
+- ⚠️ Implémenter des marqueurs temporels pour l'analyse
+- ⚠️ Ajouter des points de mesure du niveau de cohérence
 
-### 1.2 Contenu (`src/content/dialogs.json`)
-- ✓ Structure bilingue
-- ⚠️ Ajouter des métadonnées d'analyse :
+### 1.2 Interface comme Support d'Observation
+- ✓ Design minimaliste pour réduire le bruit
+- ✓ Séparation claire des rôles pour l'analyse
+- ⚠️ Intégrer des outils de mesure comportementale
+- ⚠️ Ajouter des points d'observation automatique
+
+### 1.3 Collecte de Données (`src/content/dialogs.json`)
+- ✓ Structure d'enregistrement des interactions
+- ⚠️ Enrichir les métadonnées d'analyse :
   ```json
   {
-    "messageId": "...",
-    "analysisPoints": [
-      "Niveau d'abstraction",
-      "Complexité cognitive",
-      "Marqueurs émotionnels"
+    "interactionId": "...",
+    "analysisMetrics": [
+      "Niveau de focus",
+      "Cohérence contextuelle",
+      "Capacité d'auto-correction",
+      "Temps de réalignement"
     ],
     "interactionPatterns": [
       "Question-Réponse",

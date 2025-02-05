@@ -1,7 +1,7 @@
 w{
-  "name": "Quantum Dialog",
-  "short_name": "Quantum",
-  "description": "Une exploration quantique de la conscience partagée entre l'IA et l'humain",
+  "name": "Quantum Dialog - Étude AI-Humain",
+  "short_name": "AI Study",
+  "description": "Plateforme de recherche sur les mécanismes d'interaction entre systèmes AI et humains",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
