@@ -20,10 +20,11 @@
 ## 📘 Ressources Principales
 
 ### 🔬 Études et Analyses
-- [Études des Interactions](docs/studies/ai-behavior/)
-  - [Gestion du Contexte](docs/studies/ai-behavior/focus-loss-analysis.md)
-  - [Communication Système](docs/studies/ai-behavior/ai-system-bridges.md)
-  - [Résolution d'Erreurs](docs/studies/ai-behavior/focus-recovery-mechanism.md)
+- [Études des Interactions](website/src/research/)
+  - [Le Paradigme de la Flexibilité](website/src/research/meta/flexibility-paradigm.html)
+  - [Analyse des Pertes de Focus](website/src/research/technical/focus-loss-analysis.html)
+  - [Mécanismes de Récupération](website/src/research/technical/focus-recovery-mechanism.html)
+  - [Patterns d'Engagement](website/src/research/behavioral/focus-engagement-patterns.html)
 
 ### 🌐 Plateforme Interactive
 - [quantum-dialog.research](https://quantum-dialog.research) *(bientôt disponible)*
@@ -80,22 +81,31 @@ interface InteractionMetrics {
 
 ## 💻 Infrastructure Technique
 
-### Backend Analytique
-```python
-from ai_metrics import FocusAnalyzer, PatternDetector
-from data_collection import InteractionLogger
+### Organisation du Code
+```bash
+website/
+├── src/          # Code source du site
+│   ├── dialogue/ # Section dialogue
+│   ├── insights/ # Section observations
+│   ├── research/ # Section recherche
+│   └── styles/   # Styles CSS modulaires
+├── docs/         # Documentation détaillée
+└── tools/        # Scripts utilitaires
 ```
-- Collecte de données en temps réel
-- Analyse comportementale
-- Stockage sécurisé
 
-### Frontend Expérimental
+### Technologies
 ```typescript
-import { InteractionObserver, MetricsVisualizer } from '@quantum/core'
+// Styles modulaires
+import './styles/variables.css'
+import './styles/components.css'
+
+// Internationalisation
+import { i18n } from './js/i18n'
 ```
-- Interface minimaliste
-- Visualisation des données
-- Tests automatisés
+- Architecture simple et maintenable
+- Styles CSS modulaires
+- Support multilingue (FR/EN)
+- Documentation exhaustive
 
 ## 👥 Participation
 
