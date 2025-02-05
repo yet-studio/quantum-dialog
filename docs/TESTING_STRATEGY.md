@@ -1,5 +1,23 @@
 # Stratégie de Tests et Suivi
 
+## Tests Comportementaux AI
+
+### 1. Métriques de Focus
+```json
+{
+  "scripts": {
+    "test:focus": "node tests/ai-behavior/focus-metrics.js",
+    "test:coherence": "node tests/ai-behavior/coherence-check.js",
+    "test:recovery": "node tests/ai-behavior/recovery-time.js"
+  }
+}
+```
+**Objectif** : Mesure et analyse du comportement AI
+- ✓ Détection de perte de focus
+- ✓ Temps de récupération
+- ✓ Cohérence contextuelle
+- ✓ Patterns d'interaction
+
 ## Complémentarité des Systèmes
 
 ### 1. Tests Locaux (package.json)

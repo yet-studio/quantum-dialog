@@ -1,5 +1,19 @@
 # Guide de Contribution
 
+## 🔬 Standards de Recherche
+
+### Observation et Analyse
+- Documentation des comportements observés
+- Notation précise des patterns d'interaction
+- Mesures quantitatives quand possible
+- Validation croisée des observations
+
+### Expérimentation
+- Protocoles d'observation clairs
+- Variables isolées et documentées
+- Résultats reproductibles
+- Méthodologie transparente
+
 ## 🌟 Standards de Qualité
 
 ### Code
