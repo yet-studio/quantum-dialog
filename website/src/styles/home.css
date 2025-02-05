@@ -1,0 +1,148 @@
+/* Hero Section */
+.hero {
+    padding: var(--space-16) 0;
+    background: linear-gradient(135deg, var(--color-accent-dark) 0%, var(--color-accent) 100%);
+    color: white;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: var(--font-size-5xl);
+    margin-bottom: var(--space-4);
+}
+
+.hero .subtitle {
+    font-size: var(--font-size-2xl);
+    margin-bottom: var(--space-4);
+    opacity: 0.9;
+}
+
+.hero .lead {
+    font-size: var(--font-size-xl);
+    max-width: 800px;
+    margin: 0 auto var(--space-8);
+    opacity: 0.8;
+}
+
+.cta-group {
+    display: flex;
+    gap: var(--space-4);
+    justify-content: center;
+}
+
+/* Journey Section */
+.journey {
+    padding: var(--space-16) 0;
+    background: var(--color-background);
+}
+
+.journey h2 {
+    text-align: center;
+    margin-bottom: var(--space-12);
+    font-size: var(--font-size-3xl);
+    color: var(--color-accent);
+}
+
+.journey-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-8);
+}
+
+.step {
+    padding: var(--space-6);
+    background: var(--color-background-alt);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    transition: transform var(--transition-normal);
+}
+
+.step:hover {
+    transform: translateY(-4px);
+}
+
+.step h3 {
+    color: var(--color-accent);
+    margin-bottom: var(--space-4);
+    font-size: var(--font-size-xl);
+}
+
+.step p {
+    margin-bottom: var(--space-4);
+    color: var(--color-text-light);
+}
+
+/* Research Areas */
+.research-areas {
+    padding: var(--space-16) 0;
+    background: var(--color-background-alt);
+}
+
+.research-areas h2 {
+    text-align: center;
+    margin-bottom: var(--space-12);
+    font-size: var(--font-size-3xl);
+    color: var(--color-accent);
+}
+
+.research-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-8);
+}
+
+.research-card {
+    padding: var(--space-6);
+    background: var(--color-background);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    transition: transform var(--transition-normal);
+}
+
+.research-card:hover {
+    transform: translateY(-4px);
+}
+
+.research-card h3 {
+    color: var(--color-accent);
+    margin-bottom: var(--space-4);
+    font-size: var(--font-size-xl);
+}
+
+.research-card p {
+    margin-bottom: var(--space-4);
+    color: var(--color-text-light);
+}
+
+.read-more {
+    color: var(--color-accent);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.read-more:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: var(--font-size-4xl);
+    }
+
+    .hero .subtitle {
+        font-size: var(--font-size-xl);
+    }
+
+    .hero .lead {
+        font-size: var(--font-size-lg);
+    }
+
+    .cta-group {
+        flex-direction: column;
+    }
+
+    .journey-steps,
+    .research-grid {
+        grid-template-columns: 1fr;
+    }
+}

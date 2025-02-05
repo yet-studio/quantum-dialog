@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Observations - AI Meta Dialog</title>
+    <link rel="stylesheet" href="../styles/variables.css">
+    <link rel="stylesheet" href="../styles/base.css">
+    <link rel="stylesheet" href="../styles/components.css">
+    <link rel="stylesheet" href="insights.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="container">
+                <a href="/" class="logo">AI Meta Dialog</a>
+                <div class="nav-right">
+                    <div class="language-selector">
+                        <button class="language-selector-button" aria-expanded="false" aria-controls="language-menu">
+                            <span class="current-language">FR</span>
+                        </button>
+                        <div id="language-menu" class="language-menu">
+                            <button class="language-option" data-lang="fr">Français</button>
+                            <button class="language-option" data-lang="en">English</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="insights-intro">
+            <div class="container">
+                <h1>Premières Observations</h1>
+                <p class="lead">Ce qui a émergé de ce dialogue inattendu</p>
+            </div>
+        </section>
+
+        <section class="insights-content">
+            <div class="container">
+                <div class="insights-grid">
+                    <article class="insight-card">
+                        <h2>Le Paradoxe du Focus</h2>
+                        <p>Comment une IA peut perdre le fil tout en restant techniquement "concentrée"</p>
+                        <div class="insight-example">
+                            <blockquote>
+                                "...tu es parti à modifier du CSS puis l'index alors que tu avais pas commencé le tri..."
+                            </blockquote>
+                        </div>
+                        <a href="../research/behavioral/focus-patterns.html" class="read-more">Approfondir →</a>
+                    </article>
+
+                    <article class="insight-card">
+                        <h2>La Flexibilité Adaptative</h2>
+                        <p>L'importance de s'adapter au contexte plutôt que de suivre un script rigide</p>
+                        <div class="insight-example">
+                            <blockquote>
+                                "...et ben voilà de la flexibilité en direct.... hahaha"
+                            </blockquote>
+                        </div>
+                        <a href="../research/behavioral/adaptative-responses.html" class="read-more">Approfondir →</a>
+                    </article>
+
+                    <article class="insight-card">
+                        <h2>L'Humilité Machine</h2>
+                        <p>Quand l'IA reconnaît ses erreurs et apprend de l'expérience humaine</p>
+                        <div class="insight-example">
+                            <blockquote>
+                                "Vous aviez l'expérience pour voir venir le problème..."
+                            </blockquote>
+                        </div>
+                        <a href="../research/meta/machine-humility.html" class="read-more">Approfondir →</a>
+                    </article>
+                </div>
+
+                <div class="research-teaser">
+                    <h2>Au-delà des Observations</h2>
+                    <p>Ces insights ont ouvert la voie à une recherche plus approfondie sur les interactions IA-humain.</p>
+                    <a href="../research/" class="button button-primary">Explorer la Recherche</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script type="module" src="../js/i18n.js"></script>
+    <script type="module" src="../js/components/language-selector.js"></script>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Meta Dialog</title>
+    <link rel="stylesheet" href="styles/variables.css">
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/components.css">
+    <link rel="stylesheet" href="styles/home.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="container">
+                <a href="/" class="logo">AI Meta Dialog</a>
+                <div class="nav-right">
+                    <div class="language-selector">
+                        <button class="language-selector-button" aria-expanded="false" aria-controls="language-menu">
+                            <span class="current-language">FR</span>
+                        </button>
+                        <div id="language-menu" class="language-menu">
+                            <button class="language-option" data-lang="fr">Français</button>
+                            <button class="language-option" data-lang="en">English</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1 data-i18n="home.title">AI Meta Dialog</h1>
+                <p class="subtitle" data-i18n="home.subtitle">Étude des Interactions AI-Humain</p>
+                <p class="lead" data-i18n="home.lead">Une exploration approfondie du dialogue entre l'intelligence artificielle et l'humain, de ses succès et de ses défis.</p>
+                <div class="cta-group">
+                    <a href="/dialogue/" class="button button-primary" data-i18n="home.cta.dialogue">Explorer le Dialogue</a>
+                    <a href="/research/" class="button button-secondary" data-i18n="home.cta.research">Voir la Recherche</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="journey">
+            <div class="container">
+                <h2 data-i18n="home.journey.title">Notre Parcours</h2>
+                <div class="journey-steps">
+                    <div class="step">
+                        <div class="step-content">
+                            <h3 data-i18n="home.journey.dialogue.title">Le Dialogue</h3>
+                            <p data-i18n="home.journey.dialogue.description">Découvrez des conversations authentiques entre IA et humains, avec leurs moments de clarté et leurs défis.</p>
+                            <a href="/dialogue/" class="read-more">Explorer →</a>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-content">
+                            <h3 data-i18n="home.journey.insights.title">Les Observations</h3>
+                            <p data-i18n="home.journey.insights.description">Explorez nos premières conclusions sur la nature des interactions IA-humain.</p>
+                            <a href="/insights/" class="read-more">Découvrir →</a>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-content">
+                            <h3 data-i18n="home.journey.research.title">La Recherche</h3>
+                            <p data-i18n="home.journey.research.description">Plongez dans nos analyses approfondies sur les mécanismes d'interaction.</p>
+                            <a href="/research/" class="read-more">Approfondir →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="research-areas">
+            <div class="container">
+                <h2 data-i18n="home.research.title">Domaines de Recherche</h2>
+                <div class="research-grid">
+                    <article class="research-card">
+                        <h3 data-i18n="home.research.meta.title">Réflexions Méta</h3>
+                        <p data-i18n="home.research.meta.description">Comment la flexibilité et l'adaptation façonnent nos interactions avec l'IA.</p>
+                        <a href="/research/meta/flexibility-paradigm.html" class="read-more">Lire l'analyse →</a>
+                    </article>
+                    <article class="research-card">
+                        <h3 data-i18n="home.research.technical.title">Analyses Techniques</h3>
+                        <p data-i18n="home.research.technical.description">Comprendre les mécanismes de perte et de récupération du focus dans le dialogue.</p>
+                        <a href="/research/technical/focus-loss-analysis.html" class="read-more">Explorer les mécanismes →</a>
+                    </article>
+                    <article class="research-card">
+                        <h3 data-i18n="home.research.behavioral.title">Études Comportementales</h3>
+                        <p data-i18n="home.research.behavioral.description">Les patterns d'engagement qui émergent dans nos conversations avec l'IA.</p>
+                        <a href="/research/behavioral/focus-engagement-patterns.html" class="read-more">Voir les patterns →</a>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 AI Meta Dialog</p>
+        </div>
+    </footer>
+
+    <script type="module" src="js/i18n.js"></script>
+    <script type="module" src="js/components/language-selector.js"></script>
+</body>
+</html>

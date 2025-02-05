@@ -1,0 +1,62 @@
+.dialogue-intro {
+    padding: var(--space-12) 0;
+    background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-dark) 100%);
+    color: white;
+}
+
+.dialogue-intro h1 {
+    font-size: var(--font-size-4xl);
+    margin-bottom: var(--space-4);
+}
+
+.dialogue-intro .lead {
+    font-size: var(--font-size-xl);
+    opacity: 0.9;
+}
+
+.dialogue-content {
+    padding: var(--space-8) 0;
+}
+
+.chat-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: var(--space-4);
+    background: var(--color-background);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-lg);
+}
+
+.message {
+    margin-bottom: var(--space-4);
+    padding: var(--space-4);
+    border-radius: var(--border-radius);
+}
+
+.message.human {
+    background: var(--color-background-alt);
+    margin-left: var(--space-8);
+}
+
+.message.ai {
+    background: var(--color-accent-light);
+    margin-right: var(--space-8);
+}
+
+.insight-teaser {
+    max-width: 600px;
+    margin: var(--space-12) auto 0;
+    text-align: center;
+    padding: var(--space-8);
+    background: var(--color-background-alt);
+    border-radius: var(--border-radius-lg);
+}
+
+.insight-teaser h2 {
+    color: var(--color-accent);
+    margin-bottom: var(--space-4);
+}
+
+.insight-teaser p {
+    margin-bottom: var(--space-6);
+}

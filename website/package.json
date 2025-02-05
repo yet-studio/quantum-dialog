@@ -1,0 +1,11 @@
+{
+  "name": "ai-meta-dialog-website",
+  "version": "1.0.0",
+  "description": "AI Meta Dialog Research Website",
+  "scripts": {
+    "start": "http-server src -p 3000 -c-1"
+  },
+  "dependencies": {
+    "http-server": "^14.1.1"
+  }
+}

@@ -1,0 +1,108 @@
+.insights-intro {
+    padding: var(--space-12) 0;
+    background: linear-gradient(135deg, var(--color-accent-dark) 0%, var(--color-accent) 100%);
+    color: white;
+}
+
+.insights-intro h1 {
+    font-size: var(--font-size-4xl);
+    margin-bottom: var(--space-4);
+}
+
+.insights-intro .lead {
+    font-size: var(--font-size-xl);
+    opacity: 0.9;
+}
+
+.insights-content {
+    padding: var(--space-12) 0;
+}
+
+.insights-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-8);
+    margin-bottom: var(--space-12);
+}
+
+.insight-card {
+    background: var(--color-background);
+    border-radius: var(--border-radius-lg);
+    padding: var(--space-6);
+    box-shadow: var(--shadow);
+    transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.insight-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+}
+
+.insight-card h2 {
+    color: var(--color-accent);
+    margin-bottom: var(--space-4);
+    font-size: var(--font-size-2xl);
+}
+
+.insight-card p {
+    color: var(--color-text-light);
+    margin-bottom: var(--space-4);
+}
+
+.insight-example {
+    background: var(--color-background-alt);
+    border-radius: var(--border-radius);
+    padding: var(--space-4);
+    margin: var(--space-4) 0;
+}
+
+.insight-example blockquote {
+    border-left: 3px solid var(--color-accent);
+    padding-left: var(--space-4);
+    font-style: italic;
+    color: var(--color-text);
+}
+
+.read-more {
+    display: inline-block;
+    color: var(--color-accent);
+    text-decoration: none;
+    font-weight: 500;
+    margin-top: var(--space-4);
+}
+
+.read-more:hover {
+    text-decoration: underline;
+}
+
+.research-teaser {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+    padding: var(--space-8);
+    background: var(--color-background-alt);
+    border-radius: var(--border-radius-lg);
+}
+
+.research-teaser h2 {
+    color: var(--color-accent);
+    margin-bottom: var(--space-4);
+}
+
+.research-teaser p {
+    margin-bottom: var(--space-6);
+}
+
+@media (max-width: 768px) {
+    .insights-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .insights-intro h1 {
+        font-size: var(--font-size-3xl);
+    }
+    
+    .insights-intro .lead {
+        font-size: var(--font-size-lg);
+    }
+}

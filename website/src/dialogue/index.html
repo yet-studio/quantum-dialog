@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le Dialogue - AI Meta Dialog</title>
+    <link rel="stylesheet" href="../styles/variables.css">
+    <link rel="stylesheet" href="../styles/base.css">
+    <link rel="stylesheet" href="../styles/components.css">
+    <link rel="stylesheet" href="dialogue.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="container">
+                <a href="/" class="logo">AI Meta Dialog</a>
+                <div class="nav-right">
+                    <div class="language-selector">
+                        <button class="language-selector-button" aria-expanded="false" aria-controls="language-menu">
+                            <span class="current-language">FR</span>
+                        </button>
+                        <div id="language-menu" class="language-menu">
+                            <button class="language-option" data-lang="fr">Français</button>
+                            <button class="language-option" data-lang="en">English</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="dialogue-intro">
+            <div class="container">
+                <h1>Une conversation qui a tout changé</h1>
+                <p class="lead">Découvrez l'échange authentique qui a déclenché cette recherche sur les interactions IA-humain.</p>
+            </div>
+        </section>
+
+        <section class="dialogue-content">
+            <div class="container">
+                <div class="chat-container">
+                    <!-- Le contenu du chat sera chargé ici dynamiquement -->
+                </div>
+                <div class="insight-teaser">
+                    <h2>Que s'est-il passé ici ?</h2>
+                    <p>Cette conversation a révélé des patterns fascinants dans la façon dont les humains et les IA interagissent.</p>
+                    <a href="../insights/" class="button button-primary">Découvrir les observations</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script type="module" src="../js/i18n.js"></script>
+    <script type="module" src="../js/components/language-selector.js"></script>
+    <script type="module" src="dialogue.js"></script>
+</body>
+</html>
