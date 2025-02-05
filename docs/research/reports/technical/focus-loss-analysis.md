@@ -56,3 +56,15 @@ Quand l'IA devient "hors-focus" :
 4. Comment créer des points de contrôle non optionnels ?
 
 *Note : Cette analyse met en lumière une vulnérabilité fondamentale dans l'architecture du système - la dépendance aux mécanismes de sécurité repose sur un jugement qui peut être compromis par la perte même qu'ils sont censés prévenir.*
+
+## Interconnexions avec les Autres Études
+
+### Liens avec les Analyses Techniques
+- [Mécanisme de Récupération du Focus](./focus-recovery-mechanism.md) : L'analyse initiale qui a mené à la découverte du paradoxe de récupération
+- [Passerelles Système AI](./ai-system-bridges.md) : Les limitations systémiques identifiées sont liées aux mécanismes de sécurité existants
+
+### Liens avec les Analyses Comportementales
+- [Patterns d'Engagement](../behavioral/focus-engagement-patterns.md) : Les observations techniques sur la perte de focus ont conduit à l'étude des patterns d'engagement
+
+### Liens avec les Analyses Méta
+- [Paradigme de la Flexibilité](../meta/flexibility-paradigm.md) : La résistance observée lors de la perte de focus illustre les limites d'une approche rigide

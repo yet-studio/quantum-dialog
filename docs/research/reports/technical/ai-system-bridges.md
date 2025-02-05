@@ -33,3 +33,15 @@
 - Systèmes de rappel contextuel
 
 *Note : Ce document fait partie de l'analyse du fonctionnement système dans le cadre du projet AI_Meta_Dialog. Cette analyse est le résultat d'une collaboration étroite entre l'IA et l'humain, combinant l'expertise technique de l'IA dans l'utilisation des outils et la vision stratégique de l'humain dans leur intégration.*
+
+## Interconnexions avec les Autres Études
+
+### Liens avec les Analyses Techniques
+- [Analyse de la Perte de Focus](./focus-loss-analysis.md) : Les mécanismes de sécurité étudiés sont directement liés aux problématiques de perte de focus
+- [Mécanisme de Récupération du Focus](./focus-recovery-mechanism.md) : Les outils existants jouent un rôle dans la récupération du focus
+
+### Liens avec les Analyses Comportementales
+- [Patterns d'Engagement](../behavioral/focus-engagement-patterns.md) : Les limitations des outils actuels ont conduit à l'étude des patterns d'engagement
+
+### Liens avec les Analyses Méta
+- [Paradigme de la Flexibilité](../meta/flexibility-paradigm.md) : L'analyse des outils système a contribué à la compréhension du besoin de flexibilité
