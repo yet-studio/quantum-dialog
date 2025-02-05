@@ -1,0 +1,52 @@
+name: Optimize Images
+
+on:
+  pull_request:
+    paths:
+      - '**.jpg'
+      - '**.jpeg'
+      - '**.png'
+      - '**.webp'
+      - '**.svg'
+
+jobs:
+  optimize:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          
+      - name: Install dependencies
+        run: |
+          npm install -g svgo
+          npm install sharp
+          
+      - name: Optimize SVG files
+        run: |
+          find . -name "*.svg" -type f -exec svgo {} \;
+          
+      - name: Optimize raster images
+        run: |
+          node scripts/optimize-images.js
+          
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v5
+        with:
+          commit-message: "perf: optimisation automatique des images"
+          title: "🎨 Optimisation des images"
+          body: |
+            Optimisation automatique des images :
+            
+            - Compression des PNG/JPG
+            - Optimisation des SVG
+            - Génération WebP
+            
+            ---
+            Cette PR a été créée automatiquement par GitHub Actions.
