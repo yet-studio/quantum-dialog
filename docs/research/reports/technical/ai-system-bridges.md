@@ -32,4 +32,4 @@
 - Mécanismes d'auto-vérification
 - Systèmes de rappel contextuel
 
-*Note : Ce document fait partie de l'analyse du fonctionnement système dans le cadre du projet AI_Meta_Dialog.*
+*Note : Ce document fait partie de l'analyse du fonctionnement système dans le cadre du projet AI_Meta_Dialog. Cette analyse est le résultat d'une collaboration étroite entre l'IA et l'humain, combinant l'expertise technique de l'IA dans l'utilisation des outils et la vision stratégique de l'humain dans leur intégration.*

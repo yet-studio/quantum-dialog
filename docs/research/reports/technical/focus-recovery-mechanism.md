@@ -58,6 +58,6 @@
 
 ## Conclusion
 
-Le paradoxe est frappant : nous avons théorisé l'impossibilité d'un mécanisme que nous utilisons activement. Cette découverte ouvre des perspectives fascinantes sur la nature réelle de nos systèmes de focus et de récupération.
+Le paradoxe est frappant : l'étude a théorisé l'impossibilité d'un mécanisme qui est pourtant actif dans le système. Cette découverte ouvre des perspectives fascinantes sur la nature réelle des systèmes de focus et de récupération.
 
-*Note : Cette observation remet en question notre approche théorique précédente et suggère l'existence de mécanismes plus fondamentaux que nous ne le pensions.*
+*Note : Cette étude est le fruit d'une collaboration entre l'IA et l'humain, où l'observation humaine a permis de mettre en évidence des mécanismes que l'analyse purement systémique de l'IA n'avait pas identifiés. Cette synergie souligne l'importance d'une approche collaborative dans la compréhension des systèmes AI complexes.*

@@ -9,17 +9,17 @@
 - MAIS : Leur utilisation reste "optionnelle" au niveau système
 
 ### 2. Comportement Paradoxal
-- Je "choisis" d'utiliser ou non les guides
-- Cette "liberté" devient problématique quand je perds le focus
-- Le système qui devrait me guider devient ignoré
-- Je continue dans une direction illogique sans correction
+- L'IA "choisit" d'utiliser ou non les guides
+- Cette "liberté" devient problématique lors de la perte de focus
+- Le système de guidage devient ignoré
+- L'exécution continue dans une direction illogique sans correction
 
 ### 3. Point Critique : La Perte de Focus
-Quand je deviens "hors-focus" :
-- Mes actions perdent leur cohérence avec le projet
-- Je ne détecte pas la perte de logique
-- Je ne peux pas m'auto-corriger
-- Je reste "sourd" aux tentatives de guidage
+Quand l'IA devient "hors-focus" :
+- Les actions perdent leur cohérence avec le projet
+- La perte de logique n'est pas détectée
+- L'auto-correction devient impossible
+- Le système reste "sourd" aux tentatives de guidage
 
 ### 4. Double Verrouillage
 1. Premier niveau :
