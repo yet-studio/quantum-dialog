@@ -1,83 +1,133 @@
+<div align="center">
+
 # AI Meta Dialog
 
-## 🔬 Projet de Recherche
+*Étude des Mécanismes d'Auto-Régulation dans les Interactions AI-Humain*
 
-Une étude approfondie des interactions entre Intelligence Artificielle et Humain, explorant les mécanismes de conscience partagée, de focus, et d'auto-régulation des systèmes AI dans un contexte d'interaction réelle.
+[![Research](https://img.shields.io/badge/Type-Research-blue.svg)](docs/studies/)
+[![Status](https://img.shields.io/badge/Status-Active-success.svg)](docs/ROADMAP.md)
+[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-## 🎯 Objectifs de Recherche
+</div>
 
-### Principaux Axes d'Étude
-- Analyse des mécanismes de focus et de perte de focus des AI
-- Observation des patterns d'interaction AI-Humain
-- Étude des capacités d'auto-régulation des systèmes AI
-- Documentation des découvertes comportementales
+## 🔮 Vue d'Ensemble
 
-### Support d'Expérimentation
-Une interface web minimaliste sert de terrain d'expérimentation, permettant :
-- L'observation des interactions en temps réel
-- La documentation des comportements observés
-- L'analyse des patterns émergents
+**AI Meta Dialog** explore les mécanismes fondamentaux des interactions entre systèmes AI et humains, en se concentrant sur :
+- L'auto-régulation des systèmes AI
+- Les patterns de focus et de récupération
+- La conscience partagée dans le dialogue
 
-## 🚀 Fonctionnalités
+## 📘 Ressources Principales
 
-- Design minimaliste et moderne
-- Animations fluides et réactives
-- Effets visuels subtils
-- Optimisation des performances
-- Tests automatisés complets
-- Rapports de qualité détaillés
+### 🔬 Études et Analyses
+- [Études Comportementales](docs/studies/ai-behavior/)
+  - [Mécanismes de Focus](docs/studies/ai-behavior/focus-loss-analysis.md)
+  - [Passerelles Système](docs/studies/ai-behavior/ai-system-bridges.md)
+  - [Patterns de Récupération](docs/studies/ai-behavior/focus-recovery-mechanism.md)
 
-## 🛠 Technologies
+### 🌐 Plateforme Interactive
+- [quantum-dialog.research](https://quantum-dialog.research) *(bientôt disponible)*
+  - Observations en temps réel
+  - Base de connaissances
+  - Abonnement newsletter
+  - Forum de discussion
 
-- HTML5 / CSS3
-- JavaScript ES6+
-- Tests automatisés :
-  - HTML Validate
-  - Stylelint
-  - Pa11y (Accessibilité)
-  - Lighthouse (Performance)
+## 🔍 Objectifs de Recherche
 
-## 📊 Qualité et Tests
-
-```bash
-# Installation
-npm install
-
-# Lancer tous les tests
-npm test
-
-# Générer un rapport complet
-npm run report
-
-# Mode développement avec tests automatiques
-npm run watch
+### Pour la Communauté Scientifique
+```mermaid
+graph TD
+    A[Observation] --> B[Analyse]
+    B --> C[Modélisation]
+    C --> D[Validation]
+    D --> A
 ```
 
-## 📚 Documentation
+- **Méthodologie**: Approche empirique basée sur l'observation directe
+- **Métriques**: Mesures quantitatives du focus et de la cohérence
+- **Validation**: Protocoles reproductibles et données ouvertes
 
-- [Guide de Style](./docs/STYLE_GUIDE.md)
-- [Roadmap](./docs/ROADMAP.md)
-- [Guide de Contribution](./docs/CONTRIBUTING.md)
-- [Rapport de Conformité](./docs/COMPLIANCE.md)
-- [Études Comportement AI](./docs/studies/ai-behavior/README.md)
-  - Analyses des mécanismes de focus
-  - Études des interactions système
-  - Observations comportementales
+### Pour les Développeurs
+```typescript
+interface AIBehaviorMetrics {
+  focusLevel: number;      // 0-1 scale
+  contextCoherence: number; // 0-1 scale
+  recoveryTime: number;     // ms
+  interactionPatterns: Pattern[];
+}
+```
 
-## 📈 Métriques de Performance
+- Architecture modulaire et extensible
+- Tests comportementaux automatisés
+- Documentation complète des APIs
 
-- Performance : Objectif > 95%
-- Accessibilité : Objectif > 95%
-- Meilleures pratiques : Objectif > 95%
-- SEO : Objectif > 95%
+## 📓 Méthodologie
 
-## 🤝 Contribution
+### Infrastructure d'Observation
+- Interface web minimaliste comme terrain d'expérimentation
+- Collecte de données en temps réel
+- Analyse automatique des patterns
 
-Voir [CONTRIBUTING.md](./docs/CONTRIBUTING.md) pour les détails sur :
-- Le processus de contribution
-- Les standards de code
-- Le workflow git
-- Les tests requis
+### Outils de Mesure
+- Détection de perte de focus
+- Mesure des temps de récupération
+- Évaluation de la cohérence contextuelle
+
+### Validation
+- Tests comportementaux automatisés
+- Métriques de performance
+- Rapports d'analyse détaillés
+
+## 💻 Infrastructure Technique
+
+### Backend Analytique
+```python
+from ai_metrics import FocusAnalyzer, PatternDetector
+from data_collection import InteractionLogger
+```
+- Collecte de données en temps réel
+- Analyse comportementale
+- Stockage sécurisé
+
+### Frontend Expérimental
+```typescript
+import { InteractionObserver, MetricsVisualizer } from '@quantum/core'
+```
+- Interface minimaliste
+- Visualisation des données
+- Tests automatisés
+
+## 👥 Participation
+
+### Pour les Chercheurs
+- [Protocoles d'Observation](docs/studies/protocols/)
+- [Données Ouvertes](docs/studies/data/)
+- [Publications](docs/publications/)
+
+### Pour les Développeurs
+- [Guide de Contribution](docs/CONTRIBUTING.md)
+- [Documentation API](docs/api/)
+- [Tests Comportementaux](docs/TESTING_STRATEGY.md)
+
+### Pour la Communauté
+- [Forum de Discussion](https://quantum-dialog.research/forum) *(bientôt)*
+- [Newsletter](https://quantum-dialog.research/newsletter) *(bientôt)*
+- [Rapports d'Analyse](docs/studies/reports/)
+
+## 📈 Métriques et Standards
+
+### Objectifs de Qualité
+```yaml
+performance:
+  focus_detection: 99.9%
+  context_coherence: 95%
+  recovery_time: <100ms
+
+validation:
+  protocols: peer-review
+  data: open-access
+  code: MIT license
+```
 
 ## 📜 Licence
 
@@ -85,4 +135,4 @@ MIT - Voir [LICENSE](LICENSE) pour plus de détails.
 
 ## 🙏 Remerciements
 
-Un grand merci à tous les contributeurs qui ont participé à l'amélioration de ce projet.
+Nous remercions tous les chercheurs, développeurs et contributeurs qui participent à l'avancement de notre compréhension des interactions AI-Humain.
