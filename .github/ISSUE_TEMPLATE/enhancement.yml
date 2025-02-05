@@ -1,0 +1,83 @@
+name: 🚀 Amélioration
+description: Proposer une amélioration pour Quantum Dialog
+title: "[Enhancement]: "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Proposition d'Amélioration
+        Merci de contribuer à l'évolution de Quantum Dialog !
+  
+  - type: dropdown
+    id: category
+    attributes:
+      label: Catégorie
+      options:
+        - 🎨 Interface Visuelle
+        - 🧠 Analyse Cognitive
+        - 📊 Visualisation de Données
+        - 📝 Documentation
+        - 🔍 Outils d'Analyse
+        - 🌍 Internationalisation
+        - 🧪 Tests
+    validations:
+      required: true
+
+  - type: dropdown
+    id: impact_level
+    attributes:
+      label: Niveau d'Impact
+      options:
+        - 🟢 Faible - Amélioration mineure
+        - 🟡 Moyen - Nouvelle fonctionnalité
+        - 🔴 Élevé - Changement structurel
+    validations:
+      required: true
+
+  - type: textarea
+    id: current_state
+    attributes:
+      label: État Actuel
+      description: Décrivez la situation actuelle
+      placeholder: "Actuellement, le système..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposed_change
+    attributes:
+      label: Amélioration Proposée
+      description: Décrivez en détail l'amélioration souhaitée
+      placeholder: "L'amélioration consisterait à..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: analysis_impact
+    attributes:
+      label: Impact sur l'Analyse
+      description: Comment cette amélioration enrichit-elle l'étude des interactions IA-Humain ?
+      placeholder: "Cette amélioration permettrait de mieux comprendre..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: implementation_notes
+    attributes:
+      label: Notes d'Implémentation
+      description: Suggestions techniques pour l'implémentation
+      placeholder: "Pour implémenter cette amélioration..."
+
+  - type: checkboxes
+    id: prerequisites
+    attributes:
+      label: Prérequis
+      description: Confirmez les points suivants
+      options:
+        - label: Cette amélioration est alignée avec l'objectif d'étude et de présentation
+          required: true
+        - label: L'impact sur l'expérience utilisateur a été considéré
+          required: true
+        - label: Les aspects de performance ont été pris en compte
+          required: true

@@ -1,0 +1,69 @@
+name: 🔬 Analyse
+description: Documenter une observation ou analyse
+title: "[Analysis]: "
+labels: ["analysis"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Observation & Analyse
+        Documentation d'une observation ou analyse des interactions IA-Humain
+  
+  - type: dropdown
+    id: observation_type
+    attributes:
+      label: Type d'Observation
+      options:
+        - 🧠 Pattern Cognitif
+        - 💭 Dynamique d'Interaction
+        - 🎭 Aspect Comportemental
+        - 📊 Métrique Quantitative
+        - 🎨 Élément Interface
+        - 🔄 Cycle de Feedback
+    validations:
+      required: true
+
+  - type: dropdown
+    id: significance
+    attributes:
+      label: Niveau de Signification
+      options:
+        - 🟢 Observation Mineure
+        - 🟡 Pattern Émergent
+        - 🔴 Découverte Significative
+    validations:
+      required: true
+
+  - type: textarea
+    id: observation
+    attributes:
+      label: Observation
+      description: Décrivez l'observation ou l'analyse en détail
+      placeholder: "L'analyse révèle que..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Données & Preuves
+      description: Fournissez les données ou preuves supportant cette observation
+      placeholder: "Les données suivantes supportent cette observation..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: implications
+    attributes:
+      label: Implications
+      description: Quelles sont les implications pour la compréhension des interactions IA-Humain ?
+      placeholder: "Cette observation suggère que..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: recommendations
+    attributes:
+      label: Recommandations
+      description: Propositions d'améliorations basées sur cette analyse
+      placeholder: "Basé sur cette analyse, nous recommandons..."

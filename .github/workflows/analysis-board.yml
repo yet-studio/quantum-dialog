@@ -1,0 +1,25 @@
+name: Analysis Board Update
+
+on:
+  issues:
+    types: [opened, edited, closed, reopened]
+  pull_request:
+    types: [opened, closed]
+
+jobs:
+  update-board:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: Update Analysis Board
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const script = require('./.github/scripts/update-board.js')
+            await script({github, context})
+
+      - name: Generate Analysis Report
+        if: github.event_name == 'issues' && github.event.action == 'closed'
+        run: |
+          node .github/scripts/generate-analysis-report.js
