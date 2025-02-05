@@ -563,7 +563,14 @@
                 senderDiv.textContent = `${emoji} ${msg.sender}`;
                 
                 const contentP = document.createElement('p');
-                contentP.textContent = msg.content;
+                contentP.style.cssText = 'line-height: 1.6; letter-spacing: -0.011em;';
+                
+                // Simple semantic text formatting
+                contentP.innerHTML = msg.content
+                    .replace(/^(.+?):\n((?:- .+\n?)+)/gm, (_, title, list) => 
+                        `<strong style="color: #E5C07B">${title}</strong>\n${list.replace(/^- /gm, '• ')}`)
+                    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+                contentP.style.whiteSpace = 'pre-line';
                 
                 const pinnedEmoji = document.createElement('div');
                 pinnedEmoji.className = 'pinned-emoji';
