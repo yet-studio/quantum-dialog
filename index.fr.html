@@ -407,16 +407,27 @@
             const rightGroup = document.querySelector('.scale.right svg g');
             if (!leftGroup || !rightGroup) return;
             
-            // Suppression de l'effet parallax pour plus de stabilité
-            leftGroup.style.transform = 'none';
-            rightGroup.style.transform = 'none';
+            const scrolled = window.scrollY;
+            const parallaxY = -scrolled * 0.1; // Réduction de l'intensité pour plus de subtilité
+            
+            // Application fluide de l'effet parallax
+            requestAnimationFrame(() => {
+                leftGroup.style.transform = `translateY(${parallaxY}px)`;
+                rightGroup.style.transform = `translateY(${parallaxY}px)`;
+            });
             
             ticking = false;
         }
         
+        let lastScrollPosition = 0;
+        
         function onScroll() {
-            if (!ticking) {
+            const currentScroll = window.scrollY;
+            
+            if (!ticking && Math.abs(currentScroll - lastScrollPosition) > 5) {
+                lastScrollPosition = currentScroll;
                 requestAnimationFrame(() => {
+                    updateParallax();
                     updateHeader();
                     ticking = false;
                 });
