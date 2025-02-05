@@ -4,7 +4,7 @@ Une exploration interactive de l'interface homme-machine à travers une expérie
 
 ## 🎯 Objectif
 
-Ce projet vise à créer une interface de dialogue qui reflète la profondeur des interactions entre l'humain et l'intelligence artificielle, tout en maintenant une esthétique minimaliste et une expérience utilisateur fluide.
+Ce projet propose une interface d'étude et de présentation des interactions IA-Humain, offrant un espace de réflexion sur la nature de ces échanges. À travers une esthétique minimaliste et une expérience utilisateur fluide, il met en scène et analyse les subtilités de cette relation émergente entre conscience humaine et intelligence artificielle.
 
 ## 🚀 Fonctionnalités
 
