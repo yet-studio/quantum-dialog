@@ -1,7 +1,6 @@
 const { Octokit } = require('@octokit/rest');
-const fs = require('fs');
-const path = require('path');
 
+// Intégrateur simplifié focalisé sur l'étude des interactions
 class TestIssueIntegrator {
     constructor(token, owner, repo) {
         this.octokit = new Octokit({ auth: token });
@@ -19,66 +18,50 @@ class TestIssueIntegrator {
     parseTestResults(results) {
         const issues = [];
 
-        // HTML Validation
-        if (results.html?.errors?.length > 0) {
+        // Validation de l'expérience utilisateur
+        if (results.userExperience?.issues) {
             issues.push({
-                title: '🎨 Problèmes de validation HTML détectés',
-                body: this.formatHtmlIssue(results.html.errors),
-                labels: ['interface', 'enhancement'],
-                category: 'Interface Visuelle',
-                impact_level: 'Moyen'
+                title: '🔍 Point d\'observation - Interface',
+                body: this.formatUserExperienceIssue(results.userExperience),
+                labels: ['observation', 'interface'],
             });
         }
 
-        // Accessibilité
-        if (results.a11y?.issues?.length > 0) {
+        // Analyse des interactions
+        if (results.interactions?.patterns) {
             issues.push({
-                title: '♿️ Améliorations d\'accessibilité requises',
-                body: this.formatA11yIssue(results.a11y.issues),
-                labels: ['accessibility', 'enhancement'],
-                category: 'Interface Visuelle',
-                impact_level: 'Élevé'
+                title: '🧠 Analyse - Patterns d\'interaction',
+                body: this.formatInteractionIssue(results.interactions),
+                labels: ['analysis', 'patterns'],
             });
-        }
-
-        // Performance
-        if (results.lighthouse?.scores) {
-            const perfIssues = this.analyzeLighthouseScores(results.lighthouse.scores);
-            issues.push(...perfIssues);
         }
 
         return issues;
     }
 
-    formatHtmlIssue(errors) {
-        return `## Problèmes de Validation HTML
+    formatUserExperienceIssue(data) {
+        return `## Observation de l'Interface
 
-${errors.map(error => `- 🔍 ${error.message} (${error.file}:${error.line})`).join('\n')}
+${data.observations.map(obs => `- 👁️ ${obs}`).join('\n')}
 
-### Impact sur l'Analyse
-Ces problèmes peuvent affecter la fiabilité de nos observations sur les interactions IA-Humain.
+### Impact sur l'Étude
+${data.impact}
 
-### Notes d'Implémentation
-1. Corriger les erreurs de validation
-2. Vérifier l'impact sur l'accessibilité
-3. Tester sur différents navigateurs`;
+### Points d'Attention
+${data.points.join('\n')}`;
     }
 
-    formatA11yIssue(issues) {
-        return `## Améliorations d'Accessibilité
+    formatInteractionIssue(data) {
+        return `## Patterns d'Interaction Observés
 
-${issues.map(issue => `### ${issue.type}
-- 🎯 Impact: ${issue.impact}
-- 📍 Localisation: ${issue.selector}
-- 💡 Solution: ${issue.solution}`).join('\n\n')}
+${data.patterns.map(p => `### ${p.name}
+${p.description}
 
-### Impact sur l'Analyse
-L'accessibilité est cruciale pour une étude inclusive des interactions IA-Humain.
+**Observations:**
+${p.observations.join('\n')}`).join('\n\n')}
 
-### Recommandations
-1. Prioriser les problèmes à fort impact
-2. Tester avec des lecteurs d'écran
-3. Valider avec des utilisateurs réels`;
+### Implications
+${data.implications}`;
     }
 
     analyzeLighthouseScores(scores) {

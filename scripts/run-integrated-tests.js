@@ -1,9 +1,7 @@
 const TestIssueIntegrator = require('./test-to-issue');
 const { execSync } = require('child_process');
-const fs = require('fs');
-const path = require('path');
 
-async function runIntegratedTests() {
+async function analyzeInteractions() {
     const results = {
         html: null,
         a11y: null,
