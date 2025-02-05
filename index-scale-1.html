@@ -64,38 +64,110 @@
 
         .header {
             color: #D1D5DA;
-            margin-bottom: 2rem;
+            margin: 0 0 2rem 0;
             background: var(--bg);
-            padding: 20px 0;
+            padding: 0;
         }
 
         .header-wrapper {
             position: relative;
         }
 
-        .sticky-title {
+        .header {
+            position: relative;
+        }
+
+        .header {
+            position: relative;
+        }
+
+        .header::after {
+            content: '';
             position: fixed;
             top: 0;
-            left: var(--pad);
-            right: var(--pad);
-            z-index: 100;
-            padding: 20px 0;
-            transition: all 0.3s ease;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background: linear-gradient(to bottom,
+                rgba(27, 31, 35, 1) 0%,
+                rgba(27, 31, 35, 0.7) 40%,
+                transparent 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+            z-index: 90;
+        }
+
+        .header.fade::after {
+            opacity: 1;
+        }
+
+        .sticky-title {
+            position: relative;
+            padding: 0;
+            margin: 0;
             overflow: hidden;
             white-space: nowrap;
             text-overflow: ellipsis;
             background: var(--bg);
+            transition: opacity 0.3s ease;
+        }
+
+        .sticky-title h1 {
+            margin: 0;
+            padding: 0;
         }
 
         .header-rest {
-            padding: 20px 0;
+            padding: 10px 0;
             background: var(--bg);
         }
 
-        .sticky-title.scrolled {
-            transform: scale(0.8);
-            transform-origin: left center;
+        .compact-header-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 90;
+            background: rgba(27, 31, 35, 0.9);
+            height: 38px;
+            padding: 0;
+            opacity: 0;
+            transform: translateY(-100%);
+            transition: all 0.4s ease;
         }
+
+        .compact-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            text-align: center;
+            height: 40px;
+            line-height: 32px;
+            padding: 0;
+            opacity: 0;
+            transform: translateY(-100%);
+            transition: all 0.3s ease;
+            background: rgba(27, 31, 35, 0.7);
+            z-index: 95;
+        }
+
+        .compact-header.visible {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .compact-header h1 {
+            max-width: 800px;
+            margin: 0 auto 7.5px;
+            padding: 0 var(--pad);
+            position: relative;
+            z-index: 96;
+            font-size: 0.92em;
+        }
+
+
 
         /* Fixed scale on the left */
         .scale {
@@ -208,8 +280,8 @@
         }
 
         .header h1 {
-            color: #C678DD;
-            font-size: 1.8em;
+            color: #C678DDBA;
+            font-size: 1.4em;
             margin-bottom: 1rem;
         }
 
@@ -401,9 +473,14 @@
         }
 
         function updateHeader() {
-            const stickyTitle = document.querySelector('.sticky-title');
-            if (stickyTitle) {
-                stickyTitle.classList.toggle('scrolled', window.scrollY > 50);
+            const compactHeader = document.querySelector('.compact-header');
+            const compactHeaderBg = document.querySelector('.compact-header-bg');
+            const header = document.querySelector('.header');
+            if (compactHeader && compactHeaderBg && header) {
+                const isScrolled = window.scrollY > 50;
+                compactHeader.classList.toggle('visible', isScrolled);
+                compactHeaderBg.classList.toggle('visible', isScrolled);
+                header.classList.toggle('fade', isScrolled);
             }
         }
         
@@ -452,6 +529,10 @@
         // Function to create header content
         function createHeader(data) {
             return `
+                <div class="compact-header-bg"></div>
+                <div class="compact-header">
+                    <h1>${data.title}</h1>
+                </div>
                 <div class="header-wrapper">
                     <div class="sticky-title">
                         <h1>${data.title}</h1>
