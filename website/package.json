@@ -3,9 +3,25 @@
   "version": "1.0.0",
   "description": "AI Meta Dialog Research Website",
   "scripts": {
-    "start": "http-server src -p 3000 -c-1"
+    "start": "http-server src -p 3000 -c-1",
+    "test": "npm run test:performance && npm run test:a11y && npm run test:browser",
+    "test:performance": "node tests/performance.test.js",
+    "test:a11y": "node tests/accessibility.test.js",
+    "test:browser": "node tests/browser-compatibility.test.js",
+    "test:security": "snyk test"
   },
   "dependencies": {
-    "http-server": "^14.1.1"
+    "http-server": "^14.1.1",
+    "node-fetch": "^3.3.2"
+  },
+  "devDependencies": {
+    "axe-core": "^4.8.3",
+    "lighthouse": "^11.4.0",
+    "playwright": "^1.41.0",
+    "puppeteer": "^21.9.0",
+    "snyk": "^1.1240.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
   }
 }

@@ -1,13 +1,15 @@
 :root {
   /* Colors */
-  --color-primary: #2D3748;
-  --color-secondary: #4A5568;
-  --color-accent: #6B46C1;
-  --color-background: #F7FAFC;
-  --color-text: #1A202C;
-  --color-text-light: #4A5568;
+  --color-primary: #0F172A;
+  --color-secondary: #334155;
+  --color-accent: #7C3AED;
+  --color-accent-light: #A78BFA;
+  --color-background: #F8FAFC;
+  --color-background-alt: #F1F5F9;
+  --color-text: #0F172A;
+  --color-text-light: #475569;
   --color-border: #E2E8F0;
-  --color-shadow: rgba(0, 0, 0, 0.1);
+  --color-shadow: rgba(15, 23, 42, 0.08);
 
   /* Typography */
   --font-primary: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
@@ -64,13 +66,15 @@
 /* Dark mode overrides */
 @media (prefers-color-scheme: dark) {
   :root {
-    --color-primary: #E2E8F0;
-    --color-secondary: #A0AEC0;
-    --color-accent: #9F7AEA;
-    --color-background: #1A202C;
-    --color-text: #F7FAFC;
-    --color-text-light: #A0AEC0;
-    --color-border: #2D3748;
-    --color-shadow: rgba(0, 0, 0, 0.3);
+    --color-primary: #F1F5F9;
+    --color-secondary: #CBD5E1;
+    --color-accent: #8B5CF6;
+    --color-accent-light: #A78BFA;
+    --color-background: #0F172A;
+    --color-background-alt: #1E293B;
+    --color-text: #F8FAFC;
+    --color-text-light: #CBD5E1;
+    --color-border: #334155;
+    --color-shadow: rgba(0, 0, 0, 0.25);
   }
 }
