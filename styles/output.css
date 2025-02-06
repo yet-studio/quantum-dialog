@@ -2507,6 +2507,18 @@ html {
   padding-right: 1rem;
 }
 
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
 .visible {
   visibility: visible;
 }
@@ -2700,6 +2712,46 @@ html {
 
 .filter {
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+}
+
+.focus\:not-sr-only:focus {
+  position: static;
+  width: auto;
+  height: auto;
+  padding: 0;
+  margin: 0;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+}
+
+.focus\:absolute:focus {
+  position: absolute;
+}
+
+.focus\:left-2:focus {
+  left: 0.5rem;
+}
+
+.focus\:top-2:focus {
+  top: 0.5rem;
+}
+
+.focus\:z-50:focus {
+  z-index: 50;
+}
+
+.focus\:rounded-lg:focus {
+  border-radius: 0.5rem;
+}
+
+.focus\:bg-base-200:focus {
+  --tw-bg-opacity: 1;
+  background-color: var(--fallback-b2,oklch(var(--b2)/var(--tw-bg-opacity)));
+}
+
+.focus\:p-2:focus {
+  padding: 0.5rem;
 }
 
 @media (min-width: 768px) {
