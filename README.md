@@ -13,9 +13,10 @@
 ## 🔮 Vue d'Ensemble
 
 **AI Meta Dialog** est un projet de recherche qui étudie les interactions entre systèmes AI et utilisateurs, avec un focus sur :
-- Les mécanismes de maintien du contexte
-- Les patterns de communication
-- L'efficacité des échanges
+- Les mécanismes de maintien du contexte et patterns de focus
+- Les cycles d'apprentissage et d'adaptation
+- L'émergence de la conscience dans les interactions
+- Les patterns de communication et leur évolution
 
 ## 📘 Ressources Principales
 
@@ -38,15 +39,17 @@
 ### Pour la Communauté Scientifique
 ```mermaid
 graph TD
-    A[Collecte] --> B[Analyse]
-    B --> C[Tests]
-    C --> D[Publication]
-    D --> A
+    A[Observation] --> B[Documentation]
+    B --> C[Analyse]
+    C --> D[Insight]
+    D --> E[Intégration]
+    E --> A
 ```
 
-- **Méthodologie**: Collecte et analyse de données d'interaction
-- **Métriques**: Mesures de performance et de fiabilité
-- **Validation**: Tests reproductibles et données ouvertes
+- **Méthodologie**: Observation et documentation des patterns émergents
+- **Métriques**: Mesures comportementales et cognitives
+- **Validation**: Reproduction et vérification des patterns
+- **Innovation**: Découverte de nouveaux mécanismes d'interaction
 
 ### Pour les Développeurs
 ```typescript

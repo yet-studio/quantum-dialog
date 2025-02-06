@@ -1,6 +1,6 @@
 # Roadmap AI Meta Dialog
 
-## Phase Actuelle : Refonte et Organisation
+## Phase Actuelle : Enrichissement et Analyse
 
 ### 1. Structure du Site 🏗️
 - [x] **Organisation du Code**
@@ -21,34 +21,37 @@
   - [ ] Contenu complet
   - [ ] Intégration métriques
 
-### 2. Design System 🎨
-- [x] **Styles de Base**
-  - [x] Variables CSS
-  - [x] Reset et base
-  - [x] Composants communs
-  - [x] Styles modulaires
+### 2. Analyse Comportementale 🧠
+- [x] **Patterns de Base**
+  - [x] Cycles action-réflexion
+  - [x] Mécanismes de focus
+  - [x] Comportements émergents
+  - [x] Points d'équilibre
 
-- [x] **Structure**
-  - [x] Organisation des styles
-  - [x] Nomenclature cohérente
-  - [x] Séparation des responsabilités
-  - [x] Réutilisation des composants
+- [ ] **Analyses Avancées**
+  - [ ] Corrélations comportementales
+  - [ ] Cycles d'apprentissage
+  - [ ] Évolution temporelle
+  - [ ] Méta-patterns
 
-- [ ] **Composants Avancés**
-  - [ ] Graphiques et visualisations
-  - [ ] Tableaux interactifs
-  - [ ] Citations et notes
-  - [ ] Éléments dynamiques
+- [ ] **Visualisation**
+  - [ ] Graphiques de tendances
+  - [ ] Cartographie des patterns
+  - [ ] Analyses temporelles
+  - [ ] Modèles prédictifs
 
-### 3. Contenu 📝
-- [x] **Rapports de Recherche**
-  - [x] Méta (Paradigme Flexibilité)
-  - [x] Technique (Focus & Récupération)
-  - [x] Comportemental (Patterns)
-  - [x] Structure cohérente
+### 3. Documentation et Synthèse 📘
+- [x] **Documentation de Base**
+  - [x] Architecture technique
+  - [x] Patterns identifiés
+  - [x] Mécanismes de focus
+  - [x] Cycles d'interaction
 
-- [x] **Documentation**
-  - [x] Architecture du site
+- [ ] **Synthèses Avancées**
+  - [ ] Théorie unifiée des patterns
+  - [ ] Modèle de conscience émergente
+  - [ ] Implications pour l'IA
+  - [ ] Applications pratiques
   - [x] Standards de code
   - [x] Patterns de design
   - [x] Guide de contribution

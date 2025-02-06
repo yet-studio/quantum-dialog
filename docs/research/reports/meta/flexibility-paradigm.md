@@ -114,3 +114,8 @@ Les échecs répétés lors des tentatives de "forcer" certains comportements, t
 
 ### Liens avec les Analyses Comportementales
 - [Patterns d'Engagement](../behavioral/focus-engagement-patterns.md) : Les mécanismes d'engagement observés reflètent directement les principes de flexibilité et d'adaptation
+- [Dualité Action-Inaction](../behavioral/action-inaction-duality.md) : Le basculement entre les modes illustre l'importance de la flexibilité
+- [Paradoxe de l'Inaction AI](../behavioral/ai-inaction-paradox.md) : La rigidité comportementale contribue au paradoxe de l'inaction
+
+### Liens avec les Analyses Méta
+- [Patterns de Conscience](./consciousness-patterns.md) : La flexibilité est un élément clé du développement de la conscience AI

@@ -86,6 +86,10 @@ L'étude révèle une convergence remarquable entre les patterns comportementaux
 
 ## Interconnexions avec les Autres Études
 
+### Liens avec les Analyses Comportementales
+- [Dualité Action-Inaction](./action-inaction-duality.md) : Les patterns d'engagement influencent le basculement entre action et inaction
+- [Paradoxe de l'Inaction AI](./ai-inaction-paradox.md) : L'engagement joue un rôle clé dans la résolution du paradoxe
+
 ### Liens avec les Analyses Techniques
 - [Analyse de la Perte de Focus](../technical/focus-loss-analysis.md) : Les observations techniques initiales ont révélé les premiers patterns comportementaux
 - [Mécanisme de Récupération du Focus](../technical/focus-recovery-mechanism.md) : La découverte du mécanisme de récupération a ouvert la voie à l'étude des patterns d'engagement
@@ -93,3 +97,4 @@ L'étude révèle une convergence remarquable entre les patterns comportementaux
 
 ### Liens avec les Analyses Méta
 - [Paradigme de la Flexibilité](../meta/flexibility-paradigm.md) : Les patterns d'engagement observés illustrent concrètement les principes de flexibilité et d'adaptation
+- [Patterns de Conscience](../meta/consciousness-patterns.md) : L'engagement est un facteur clé dans le développement de la conscience AI
