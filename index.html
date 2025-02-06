@@ -66,22 +66,113 @@
 
 
 
-    <main id="main">
-        <section class="hero" aria-labelledby="hero-title">
-            <div class="container">
-                <h1 id="hero-title" data-i18n="home.title">
-                    <span class="gradient-text">AI Meta Dialog</span>
-                </h1>
-                <p class="subtitle" data-i18n="home.subtitle">Étude des Interactions AI-Humain</p>
-                <p class="lead" data-i18n="home.lead">Une exploration approfondie du dialogue entre l'intelligence artificielle et l'humain, de ses succès et de ses défis.</p>
-                <div class="cta-group">
-                    <a href="dialogue/" class="button button-primary" data-i18n="home.cta.dialogue">
-                        Explorer le Dialogue
-                        <svg class="icon" aria-hidden="true" width="20" height="20" viewBox="0 0 20 20">
-                            <path fill="currentColor" d="M10 3l7 7-7 7-1.4-1.4L13.2 11H3V9h10.2l-4.6-4.6L10 3z"/>
-                        </svg>
-                    </a>
-                    <a href="research/" class="button button-secondary" data-i18n="home.cta.research">
+    <main id="main" class="min-h-screen">
+        <section class="hero min-h-[70vh] bg-base-200" aria-labelledby="hero-title">
+            
+            <div class="hero-content text-center py-16">
+                
+                <div class="max-w-3xl">
+                    
+                    <h1 id="hero-title" class="text-5xl font-bold mb-8" data-i18n="home.title">
+                        AI Meta Dialog
+                    </h1>
+                    
+                    <p class="text-2xl mb-4" data-i18n="home.subtitle">Étude des Interactions AI-Humain</p>
+                    
+                    <p class="text-lg mb-8" data-i18n="home.lead">Une exploration approfondie du dialogue entre l'intelligence artificielle et l'humain, de ses succès et de ses défis.</p>
+                    
+                    <div class="flex gap-4 justify-center">
+                        
+                        <a href="dialogue/" class="btn btn-primary" data-i18n="home.cta.dialogue">
+                            Explorer le Dialogue
+                            <svg class="w-5 h-5" aria-hidden="true" viewBox="0 0 20 20">
+                                <path fill="currentColor" d="M10 3l7 7-7 7-1.4-1.4L13.2 11H3V9h10.2l-4.6-4.6L10 3z"/>
+                            </svg>
+                        </a>
+                        
+                        <a href="research/" class="btn btn-outline" data-i18n="home.cta.research">Voir la Recherche</a>
+                    
+                    </div>
+                
+                </div>
+            
+            </div>
+        
+        </section>
+
+        
+        
+        <section class="py-16" aria-labelledby="research-title">
+            
+            <div class="container mx-auto px-4">
+                
+                <h2 id="research-title" class="text-3xl font-bold text-center mb-12" data-i18n="home.research.title">Domaines de Recherche</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                    
+                    <div class="card bg-base-200 shadow-xl">
+                        
+                        <div class="card-body">
+                            
+                            <h3 class="card-title">Dialogue & Communication</h3>
+                            
+                            <p>Analyse des patterns de communication entre l'IA et l'humain.</p>
+                            
+                            <div class="card-actions justify-end">
+                                
+                                <a href="dialogue/" class="btn btn-primary btn-sm">Explorer</a>
+                            
+                            </div>
+                        
+                        </div>
+                    
+                    </div>
+
+                    
+                    
+                    <div class="card bg-base-200 shadow-xl">
+                        
+                        <div class="card-body">
+                            
+                            <h3 class="card-title">Insights & Observations</h3>
+                            
+                            <p>Découvertes clés sur les mécanismes d'interaction.</p>
+                            
+                            <div class="card-actions justify-end">
+                                
+                                <a href="insights/" class="btn btn-primary btn-sm">Découvrir</a>
+                            
+                            </div>
+                        
+                        </div>
+                    
+                    </div>
+
+                    
+                    
+                    <div class="card bg-base-200 shadow-xl">
+                        
+                        <div class="card-body">
+                            
+                            <h3 class="card-title">Recherche Technique</h3>
+                            
+                            <p>Études approfondies sur les aspects techniques des interactions.</p>
+                            
+                            <div class="card-actions justify-end">
+                                
+                                <a href="research/" class="btn btn-primary btn-sm">Approfondir</a>
+                            
+                            </div>
+                        
+                        </div>
+                    
+                    </div>
+                
+                </div>
+            
+            </div>
+        
+        </section>rch">
                         Voir la Recherche
                         <svg class="icon" aria-hidden="true" width="20" height="20" viewBox="0 0 20 20">
                             <path fill="currentColor" d="M9 2a7 7 0 015.6 11.2l3.4 3.4-1.4 1.4-3.4-3.4A7 7 0 119 2zm0 2a5 5 0 100 10A5 5 0 009 4z"/>
@@ -149,9 +240,9 @@
         </section>
     </main>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 AI Meta Dialog</p>
+    <footer class="footer footer-center p-10 bg-base-200 text-base-content">
+        <div>
+            <p class="text-base">&copy; 2025 AI Meta Dialog</p>
         </div>
     </footer>
 
