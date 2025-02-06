@@ -1,0 +1,189 @@
+/* Meta Research Specific Styles */
+
+/* Concept Map */
+.concept-map {
+    margin: var(--space-8) 0;
+    padding: var(--space-6);
+    background: var(--color-background);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-md);
+}
+
+.concept-title {
+    font-size: var(--font-size-xl);
+    color: var(--color-text);
+    margin-bottom: var(--space-6);
+    text-align: center;
+}
+
+.concept-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--space-6);
+}
+
+.concept-node {
+    padding: var(--space-4);
+    background: var(--color-background-alt);
+    border-radius: var(--border-radius-md);
+    transition: all var(--transition-normal);
+}
+
+.concept-node:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.node-title {
+    font-size: var(--font-size-lg);
+    color: var(--color-accent);
+    margin-bottom: var(--space-2);
+}
+
+.node-description {
+    color: var(--color-text-light);
+    font-size: var(--font-size-sm);
+    line-height: 1.6;
+}
+
+/* Insight Cards */
+.insight-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-6);
+    margin: var(--space-8) 0;
+}
+
+.insight-card {
+    background: var(--color-background);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-md);
+    padding: var(--space-6);
+    transition: all var(--transition-normal);
+}
+
+.insight-card:hover {
+    border-color: var(--color-accent);
+    box-shadow: var(--shadow-md);
+}
+
+.insight-header {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-4);
+    margin-bottom: var(--space-4);
+}
+
+.insight-icon {
+    width: 32px;
+    height: 32px;
+    color: var(--color-accent);
+    flex-shrink: 0;
+}
+
+.insight-title {
+    font-size: var(--font-size-lg);
+    color: var(--color-text);
+    margin: 0;
+}
+
+.insight-content {
+    color: var(--color-text-light);
+    line-height: 1.6;
+}
+
+/* Analysis Framework */
+.framework {
+    margin: var(--space-8) 0;
+}
+
+.framework-header {
+    text-align: center;
+    margin-bottom: var(--space-6);
+}
+
+.framework-title {
+    font-size: var(--font-size-2xl);
+    color: var(--color-text);
+    margin-bottom: var(--space-2);
+}
+
+.framework-description {
+    color: var(--color-text-light);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.framework-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--space-6);
+    margin: var(--space-6) 0;
+}
+
+.framework-step {
+    text-align: center;
+    padding: var(--space-4);
+}
+
+.step-number {
+    width: 40px;
+    height: 40px;
+    background: var(--color-accent);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto var(--space-4);
+    font-weight: 600;
+}
+
+.step-title {
+    font-size: var(--font-size-lg);
+    color: var(--color-text);
+    margin-bottom: var(--space-2);
+}
+
+.step-description {
+    color: var(--color-text-light);
+    font-size: var(--font-size-sm);
+}
+
+/* Meta Analysis Table */
+.meta-table {
+    width: 100%;
+    margin: var(--space-8) 0;
+    border-collapse: collapse;
+}
+
+.meta-table th,
+.meta-table td {
+    padding: var(--space-4);
+    border: 1px solid var(--color-border);
+    text-align: left;
+}
+
+.meta-table th {
+    background: var(--color-background-alt);
+    font-weight: 600;
+    color: var(--color-text);
+}
+
+.meta-table td {
+    color: var(--color-text-light);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .concept-grid,
+    .insight-cards,
+    .framework-steps {
+        grid-template-columns: 1fr;
+    }
+    
+    .meta-table {
+        display: block;
+        overflow-x: auto;
+    }
+}

@@ -1,15 +1,15 @@
 :root {
-  /* Colors - Inspiré par des designs minimalistes et professionnels */
-  --color-primary: #18181B;      /* Gris foncé pour le texte principal */
-  --color-secondary: #52525B;    /* Gris moyen pour le texte secondaire */
-  --color-accent: #3B82F6;       /* Bleu doux pour les accents */
-  --color-accent-light: #60A5FA; /* Bleu clair pour les hovers */
-  --color-background: #FAFAFA;   /* Fond très légèrement gris */
-  --color-background-alt: #F4F4F5; /* Fond alternatif subtilement différent */
-  --color-text: #18181B;         /* Texte principal */
-  --color-text-light: #71717A;   /* Texte secondaire */
-  --color-border: #E4E4E7;       /* Bordures subtiles */
-  --color-shadow: rgba(24, 24, 27, 0.05); /* Ombres très légères */
+  /* Colors */
+  --color-primary: #0F172A;
+  --color-secondary: #334155;
+  --color-accent: #7C3AED;
+  --color-accent-light: #A78BFA;
+  --color-background: #F8FAFC;
+  --color-background-alt: #F1F5F9;
+  --color-text: #0F172A;
+  --color-text-light: #475569;
+  --color-border: #E2E8F0;
+  --color-shadow: rgba(15, 23, 42, 0.08);
 
   /* Typography */
   --font-primary: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
@@ -63,18 +63,18 @@
   --z-tooltip: 400;
 }
 
-/* Dark mode - Plus doux et confortable pour les yeux */
+/* Dark mode overrides */
 @media (prefers-color-scheme: dark) {
   :root {
-    --color-primary: #F4F4F5;       /* Texte principal en gris très clair */
-    --color-secondary: #A1A1AA;     /* Texte secondaire en gris moyen */
-    --color-accent: #3B82F6;        /* Même bleu que le mode clair pour la cohérence */
-    --color-accent-light: #60A5FA;  /* Même bleu clair */
-    --color-background: #18181B;    /* Fond sombre mais pas noir */
-    --color-background-alt: #27272A; /* Fond alternatif légèrement plus clair */
-    --color-text: #F4F4F5;          /* Texte principal */
-    --color-text-light: #A1A1AA;    /* Texte secondaire */
-    --color-border: #3F3F46;        /* Bordures subtiles */
-    --color-shadow: rgba(0, 0, 0, 0.1); /* Ombres très subtiles */
+    --color-primary: #F1F5F9;
+    --color-secondary: #CBD5E1;
+    --color-accent: #8B5CF6;
+    --color-accent-light: #A78BFA;
+    --color-background: #0F172A;
+    --color-background-alt: #1E293B;
+    --color-text: #F8FAFC;
+    --color-text-light: #CBD5E1;
+    --color-border: #334155;
+    --color-shadow: rgba(0, 0, 0, 0.25);
   }
 }

@@ -8,7 +8,7 @@ class DialogueViewer {
 
     async loadChat() {
         try {
-            const response = await fetch('../content/dialogs.json');
+            const response = await fetch('/chat.json');
             const chat = await response.json();
             this.renderChat(chat);
         } catch (error) {
@@ -17,28 +17,12 @@ class DialogueViewer {
         }
     }
 
-    renderChat(dialogData) {
-        // Obtenir la langue actuelle
-        const currentLang = document.documentElement.lang || 'fr';
-        
-        // Obtenir les conversations pour la langue actuelle
-        const conversations = dialogData[currentLang].conversations;
-        
-        // Pour l'instant, on affiche la première conversation (intro)
-        const introConversation = conversations.find(conv => conv.id === 'intro');
-        
-        if (!introConversation) {
-            throw new Error('Conversation intro non trouvée');
-        }
-        
-        const messages = introConversation.messages.map(message => {
-            const isHuman = message.sender === 'Human';
+    renderChat(chat) {
+        const messages = chat.messages.map(message => {
+            const isHuman = message.role === 'human';
             return `
                 <div class="message ${isHuman ? 'human' : 'ai'}">
-                    <div class="message-content">
-                        <span class="emoji">${message.emoji}</span>
-                        ${message.content}
-                    </div>
+                    <div class="message-content">${message.content}</div>
                 </div>
             `;
         }).join('');

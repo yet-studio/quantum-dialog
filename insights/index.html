@@ -8,36 +8,6 @@
     <link rel="stylesheet" href="../styles/base.css">
     <link rel="stylesheet" href="../styles/components.css">
     <link rel="stylesheet" href="insights.css">
-    
-    <!-- Base URL -->
-    <script>
-        function getBaseUrl() {
-            const hostname = window.location.hostname;
-            
-            // Localhost
-            if (hostname === 'localhost' || hostname === '127.0.0.1') {
-                return '';
-            }
-            
-            // GitHub Pages
-            if (hostname === 'yet-studio.github.io') {
-                return '/quantum-dialog';
-            }
-            
-            // Sous-domaine personnalisé
-            return '';
-        }
-
-        document.addEventListener('DOMContentLoaded', function() {
-            const baseUrl = getBaseUrl();
-            document.querySelectorAll('a[href]').forEach(link => {
-                const href = link.getAttribute('href');
-                if (!href.startsWith('http') && !href.startsWith('//')) {
-                    link.href = baseUrl + '/' + href.replace(/^\/+/, '');
-                }
-            });
-        });
-    </script>
 </head>
 <body>
     <header>
@@ -89,7 +59,7 @@
                                 "...et ben voilà de la flexibilité en direct.... hahaha"
                             </blockquote>
                         </div>
-                        <a href="../research/meta/flexibility-paradigm.html" class="read-more">Approfondir →</a>
+                        <a href="../research/behavioral/focus-engagement-patterns.html" class="read-more">Approfondir →</a>
                     </article>
 
                     <article class="insight-card">
@@ -100,7 +70,7 @@
                                 "Vous aviez l'expérience pour voir venir le problème..."
                             </blockquote>
                         </div>
-                        <a href="../research/technical/focus-loss-analysis.html" class="read-more">Approfondir →</a>
+                        <a href="../research/meta/flexibility-paradigm.html" class="read-more">Approfondir →</a>
                     </article>
                 </div>
 
