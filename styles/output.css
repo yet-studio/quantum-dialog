@@ -2612,6 +2612,10 @@ footer {
   margin-top: 0.75rem;
 }
 
+.ml-2 {
+  margin-left: 0.5rem;
+}
+
 .block {
   display: block;
 }
@@ -2642,6 +2646,14 @@ footer {
 
 .w-8 {
   width: 2rem;
+}
+
+.flex-1 {
+  flex: 1 1 0%;
+}
+
+.flex-none {
+  flex: none;
 }
 
 .rounded-box {
