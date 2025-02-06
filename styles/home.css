@@ -1,14 +1,15 @@
 /* Hero Section */
 .hero {
-    min-height: calc(90vh - var(--header-height));
+    min-height: calc(80vh - var(--header-height));
     padding: var(--space-16) 0;
-    background: radial-gradient(circle at top right, var(--color-accent-light) 0%, var(--color-accent) 100%);
-    color: white;
+    background: var(--color-background);
+    color: var(--color-text);
     text-align: center;
     display: flex;
     align-items: center;
     position: relative;
     overflow: hidden;
+    border-bottom: 1px solid var(--color-border);
 }
 
 .hero::before {
@@ -17,26 +18,21 @@
     top: 0;
     left: 0;
     right: 0;
-    bottom: 0;
-    background: url('/src/assets/images/grid.svg') center/cover;
-    opacity: 0.1;
-    animation: pulse 10s ease-in-out infinite;
-}
-
-@keyframes pulse {
-    0%, 100% { opacity: 0.1; }
-    50% { opacity: 0.15; }
+    height: 1px;
+    background: linear-gradient(90deg, 
+        var(--color-background) 0%, 
+        var(--color-accent) 50%, 
+        var(--color-background) 100%);
+    opacity: 0.5;
 }
 
 .hero h1 {
-    font-size: clamp(2.5rem, 8vw, 4rem);
+    font-size: clamp(2rem, 5vw, 3rem);
     margin-bottom: var(--space-4);
-    font-weight: 800;
+    font-weight: 700;
     letter-spacing: -0.02em;
-    line-height: 1.1;
-    background: linear-gradient(to right, white, rgba(255,255,255,0.8));
-    -webkit-background-clip: text;
-    color: transparent;
+    line-height: 1.2;
+    color: var(--color-primary);
 }
 
 .hero .subtitle {
@@ -80,11 +76,12 @@
 .step {
     padding: var(--space-8);
     background: var(--color-background);
-    border-radius: var(--border-radius-lg);
+    border-radius: var(--border-radius-md);
     border: 1px solid var(--color-border);
     transition: all var(--transition-normal);
     position: relative;
     overflow: hidden;
+    box-shadow: var(--shadow-sm);
 }
 
 .step::before {
@@ -143,7 +140,7 @@
 .research-card {
     padding: var(--space-8);
     background: var(--color-background);
-    border-radius: var(--border-radius-lg);
+    border-radius: var(--border-radius-md);
     border: 1px solid var(--color-border);
     transition: all var(--transition-normal);
     position: relative;
@@ -151,23 +148,25 @@
     flex-direction: column;
     justify-content: space-between;
     gap: var(--space-4);
+    box-shadow: var(--shadow-sm);
 }
 
 .research-card::after {
     content: '';
     position: absolute;
-    inset: 0;
-    background: linear-gradient(to bottom right, var(--color-accent), var(--color-accent-light));
+    left: 0;
+    top: 0;
+    width: 2px;
+    height: 100%;
+    background: var(--color-accent);
     opacity: 0;
     transition: opacity var(--transition-normal);
-    z-index: 0;
-    border-radius: var(--border-radius-lg);
 }
 
 .research-card:hover {
-    transform: translateY(-4px);
-    border-color: transparent;
-    color: white;
+    transform: translateY(-2px);
+    border-color: var(--color-accent);
+    box-shadow: var(--shadow-md);
 }
 
 .research-card:hover::after {
