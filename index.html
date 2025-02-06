@@ -56,8 +56,9 @@
             const baseUrl = getBaseUrl();
             document.querySelectorAll('a[href]').forEach(link => {
                 const href = link.getAttribute('href');
-                if (!href.startsWith('http') && !href.startsWith('//')) {
-                    link.href = baseUrl + '/' + href.replace(/^\/+/, '');
+                if (!href.startsWith('http') && !href.startsWith('//') && !href.startsWith('#')) {
+                    // Si baseUrl est vide, on garde juste le href, sinon on combine les deux
+                    link.href = baseUrl ? baseUrl + '/' + href.replace(/^\/+/, '') : href;
                 }
             });
         });
