@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Fond avec dégradé -->
+  <rect width="1200" height="630" fill="url(#gradient)"/>
+  
+  <!-- Logo Quantum -->
+  <g transform="translate(150, 165) scale(1.5)">
+    <circle cx="256" cy="256" r="240" fill="#3498db" opacity="0.1"/>
+    <path d="M256 96C167.635 96 96 167.635 96 256C96 344.365 167.635 416 256 416C321.617 416 377.969 376.461 401.945 319.764L352 288L304 320V256L352 224L401.945 192.236C377.969 135.539 321.617 96 256 96Z" fill="#3498db"/>
+    <circle cx="256" cy="256" r="32" fill="#2ecc71"/>
+    <g stroke="#3498db" stroke-width="8" fill="none" opacity="0.6">
+      <ellipse cx="256" cy="256" rx="160" ry="80" transform="rotate(30 256 256)"/>
+      <ellipse cx="256" cy="256" rx="160" ry="80" transform="rotate(-30 256 256)"/>
+    </g>
+  </g>
+  
+  <!-- Texte -->
+  <text x="600" y="250" font-family="Arial" font-size="72" font-weight="bold" fill="white" text-anchor="middle">
+    Quantum Dialog
+  </text>
+  <text x="600" y="350" font-family="Arial" font-size="32" fill="white" text-anchor="middle" opacity="0.8">
+    Une exploration quantique de la conscience
+  </text>
+  <text x="600" y="400" font-family="Arial" font-size="32" fill="white" text-anchor="middle" opacity="0.8">
+    partagée entre l'IA et l'humain
+  </text>
+  
+  <!-- Dégradé -->
+  <defs>
+    <linearGradient id="gradient" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#2c3e50"/>
+      <stop offset="100%" stop-color="#3498db"/>
+    </linearGradient>
+  </defs>
+</svg>

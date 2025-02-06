@@ -1,0 +1,122 @@
+/* Optimisations des performances */
+/* Utilisation de transform: translate3d() pour activer l'accélération matérielle */
+/* Réduction des animations aux transitions essentielles */
+
+/* Gradient Text - Static */
+.gradient-text {
+    background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-light) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+/* Hero Background - Static */
+.hero-background {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.hero-background .grid {
+    position: absolute;
+    inset: 0;
+    background-image: 
+        linear-gradient(var(--color-accent) 1px, transparent 1px),
+        linear-gradient(90deg, var(--color-accent) 1px, transparent 1px);
+    background-size: 50px 50px;
+    opacity: 0.1;
+    transform: perspective(500px) rotateX(60deg);
+}
+
+.hero-background .gradient {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at top right, 
+        var(--color-accent-light) 0%, 
+        var(--color-accent) 50%,
+        transparent 100%);
+    opacity: 0.3;
+    mix-blend-mode: overlay;
+}
+
+/* Optimized Button Hover */
+.button {
+    transition: transform 0.2s ease-out;
+    will-change: transform;
+}
+
+.button:hover {
+    transform: translateY(-2px);
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    .button {
+        transition: none;
+    }
+    
+    .button:hover {
+        transform: none;
+    }
+}
+
+/* Theme Toggle */
+.theme-toggle {
+    background: none;
+    border: none;
+    padding: 0.5rem;
+    cursor: pointer;
+    color: var(--color-text);
+    transition: color var(--transition-normal);
+}
+
+.theme-toggle:hover {
+    color: var(--color-accent);
+}
+
+.theme-toggle .sun-icon {
+    display: none;
+}
+
+.theme-toggle .moon-icon {
+    display: block;
+}
+
+@media (prefers-color-scheme: dark) {
+    .theme-toggle .sun-icon {
+        display: block;
+    }
+    
+    .theme-toggle .moon-icon {
+        display: none;
+    }
+}
+
+/* Skip Link */
+.skip-link {
+    position: fixed;
+    top: -100%;
+    left: 1rem;
+    padding: 0.5rem 1rem;
+    background: var(--color-accent);
+    color: white;
+    text-decoration: none;
+    border-radius: 0 0 var(--border-radius) var(--border-radius);
+    z-index: var(--z-header);
+    transition: top var(--transition-normal);
+}
+
+.skip-link:focus {
+    top: 0;
+}
+
+/* Button Icons */
+.button .icon {
+    margin-left: 0.5rem;
+    transition: transform var(--transition-normal);
+}
+
+.button:hover .icon {
+    transform: translateX(4px);
+}

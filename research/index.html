@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recherche - AI Meta Dialog</title>
+    <link rel="stylesheet" href="../styles/variables.css">
+    <link rel="stylesheet" href="../styles/base.css">
+    <link rel="stylesheet" href="../styles/components.css">
+    <link rel="stylesheet" href="research.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="container">
+                <a href="/" class="logo">AI Meta Dialog</a>
+                <div class="nav-right">
+                    <div class="language-selector">
+                        <button class="language-selector-button" aria-expanded="false" aria-controls="language-menu">
+                            <span class="current-language">FR</span>
+                        </button>
+                        <div id="language-menu" class="language-menu">
+                            <button class="language-option" data-lang="fr">Français</button>
+                            <button class="language-option" data-lang="en">English</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="research-intro">
+            <div class="container">
+                <h1>La Recherche</h1>
+                <p class="lead">Une exploration méthodique des interactions IA-humain</p>
+            </div>
+        </section>
+
+        <section class="research-overview">
+            <div class="container">
+                <div class="research-areas">
+                    <article class="research-area technical">
+                        <h2>Analyses Techniques</h2>
+                        <ul class="paper-list">
+                            <li>
+                                <a href="technical/focus-loss-analysis.html" class="paper-link">
+                                    <h3>Analyse des Pertes de Focus</h3>
+                                    <p>Étude des mécanismes sous-jacents aux déviations de contexte dans les interactions IA</p>
+                                    <div class="paper-meta">
+                                        <span class="tag">Technique</span>
+                                        <span class="reading-time">15 min</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="technical/focus-recovery-mechanism.html" class="paper-link">
+                                    <h3>Mécanismes de Récupération</h3>
+                                    <p>Comment les systèmes IA peuvent retrouver et maintenir leur contexte d'interaction</p>
+                                    <div class="paper-meta">
+                                        <span class="tag">Technique</span>
+                                        <span class="reading-time">20 min</span>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </article>
+
+                    <article class="research-area behavioral">
+                        <h2>Analyses Comportementales</h2>
+                        <ul class="paper-list">
+                            <li>
+                                <a href="behavioral/focus-engagement-patterns.html" class="paper-link">
+                                    <h3>Patterns d'Engagement</h3>
+                                    <p>Les schémas récurrents dans les interactions IA-humain et leur impact sur la qualité du dialogue</p>
+                                    <div class="paper-meta">
+                                        <span class="tag">Comportemental</span>
+                                        <span class="reading-time">25 min</span>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </article>
+
+                    <article class="research-area meta">
+                        <h2>Analyses Méta</h2>
+                        <ul class="paper-list">
+                            <li>
+                                <a href="meta/flexibility-paradigm.html" class="paper-link">
+                                    <h3>Le Paradigme de la Flexibilité</h3>
+                                    <p>Une réflexion sur l'importance de l'adaptabilité dans les systèmes IA conversationnels</p>
+                                    <div class="paper-meta">
+                                        <span class="tag">Méta</span>
+                                        <span class="reading-time">30 min</span>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </article>
+                </div>
+
+                <aside class="methodology-note">
+                    <h3>Note Méthodologique</h3>
+                    <p>Ces analyses combinent observation directe, analyse de données et réflexion théorique. Chaque rapport inclut sa méthodologie spécifique et ses limitations.</p>
+                </aside>
+            </div>
+        </section>
+    </main>
+
+    <script type="module" src="../js/i18n.js"></script>
+    <script type="module" src="../js/components/language-selector.js"></script>
+</body>
+</html>
